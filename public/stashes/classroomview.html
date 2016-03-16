@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link rel="stylesheet" href="css/classroom.css">
+  <!--bootstrap-->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container-fluid">
+
+  <!-- Top Left -->
+  <div class="row">
+    <div class="col-md-3" id="tocpanetop">
+      <button type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-align-left glyphicon-menu-hamburger" aria-hidden="true"></span>
+    </button>
+    </div>
+  <!-- Top Right -->
+    <div class="col-md-9" id="questionpanetop">
+      <button type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-align-left glyphicon-education" aria-hidden="true"></span>
+    </button>
+    </div>
+  </div>
+
+  <!-- Class Agenda -->
+  <div class="row">
+    <div class="col-md-3">
+      <div class="row" style="overflow-y: scroll;">
+        <div class="col-md-12">
+
+          <% include "../views/partials/agendapane.ejs" %>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Discussion Pane -->
+    <div class="col-md-9" style="overflow-y: scroll;">
+      <div class="row">
+        <div class="col-md-12 agendatitle">
+          <h1 id="agendatitle"><%= classroom.module.title%><span class="glyphicon glyphicon-plus" id="plusicon" aria-hidden="true"></span></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-11">
+          <h3 id="questiontitle"><span class="glyphicon glyphicon-arrow-right" id="questionicon" aria-hidden="true"></span><%= classroom.module.question[0] %></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-11">
+            <p id="questiontext">
+              <%= classroom.module.question.body %>
+            </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class= "col-md-11">
+          <h3 id="answertitle"><b><%= classroom.module.question[0].answer[0].title %></b><span class="glyphicon glyphicon-arrow-left" id="answericon" aria-hidden="true"></span></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class= "col-md-11">
+            <p id="answertext">
+              <%= classroom.module.question[0].answer[0].body %>
+            </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class= "col-md-11">
+          <h3 id="answertitle"><b><%= classroom.module.question[0].answer[1].title %></b><span class="glyphicon glyphicon-arrow-left" id="answericon" aria-hidden="true"></span></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class= "col-md-11">
+            <p id="answertext">
+              <%= classroom.module.question[0].answer[1].body %>
+            </p>
+        </div>
+      </div>
+  </div></html>

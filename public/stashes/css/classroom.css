@@ -1,0 +1,56 @@
+.col-md-9{
+  padding:1% 5% 1% 5%;
+  overflow: auto;
+  position:absolute;
+  }
+
+.col-md-3 {
+  background-color:#FAFAFA;
+  padding: 1% 5% 1% 5%;
+  overflow: auto;
+  position:absolute;
+  }
+
+#questionpanetop{
+  background-color:#fafafa;
+  padding: 1%;
+}
+
+#tocpanetop{
+  background-color:#e3e3e3;
+}
+
+#selected{
+  background-color: grey;
+}
+
+#plusicon{
+  float: right;
+}
+
+#plusicon:hover{
+  float: right;
+  color: white;
+  background-color: black;
+}
+
+#agendatitle{
+
+}
+
+#questiontitle{
+  text-align:right;
+}
+
+#questiontext{
+  text-align:left;
+}
+
+#answertitle{
+
+}
+
+#answertext{
+
+}
+
