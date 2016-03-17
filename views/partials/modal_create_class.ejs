@@ -1,0 +1,26 @@
+<div class="modal fade" id="createClassModal" tabindex="-1" role="dialog" aria-labelledby="createClassModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="createClassModalLabel">Create a Classroom</h4>
+      </div>
+      <div class="modal-body">
+        <form action="submit" id="userform">
+          Type: <br> <select name="new-class-type" id="new-class-type">
+                  <option value="course">Course</option>
+                  <option value="subject-thread">Subject</option>
+                  <option value="industry-thread">Industry</option>
+                </select><br><br>
+          Classroom Name: <br> <input type="text" name="new-class-name" placeholder="Class Name" id="new-class-name"><br><br>
+          Add Admin: <br> <input type="text" name="new-class-admins" placeholder="" id="new-class-admins"><br><br>
+          Description: <br> <textarea name="new-class-description" placeholder="Please enter a description about your class..." id="new-class-description" rows="4" cols="30"></textarea>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="new-class-button" data-dismiss="modal" disabled>Create New Class</button>
+      </div>
+    </div>
+  </div>
+</div>

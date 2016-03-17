@@ -104,9 +104,11 @@ function classroomCreate(req, res, next) {
     .then(function(code) {
       console.log("  -> code generated:", code);
       var classroom = new Classroom({
-        name       : req.body.name,
-        admins     : [req.body.creator],
-        signUpCode : code
+        type        : req.body.type,
+        name        : req.body.name,
+        admins      : [req.body.creator],
+        description : req.body.description,
+        signUpCode  : code,
         // classroom.admins.push(req.body.admins);
         // classroom.professionals   = req.body.professionals;
       });

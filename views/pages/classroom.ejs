@@ -14,13 +14,14 @@
   <$- user.newUser ? include('../partials/modal_edit_profile') : "" $>
   <$- include('../partials/modal_add_class') $>
   <$- include('../partials/modal_add_question') $>
+  <$- include('../partials/modal_create_class') $>
 <div class="container-fluid">
 
   <div class="row">
     <div class="col-md-3" id="tocpanetop">
     <button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#addClassModal" id="add-class-button">Add Class</button>
-    <$ if (user.type === "instructor") { $>
-      <button id="create-class-button">Create Class</button>
+    <$ if (user.type === "student") { $>
+      <button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#createClassModal" id="create-class-button">Create Class</button>
     <$ } $>
     </div>
     <div class="col-md-9" id="questionpanetop">
