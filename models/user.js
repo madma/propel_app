@@ -26,7 +26,7 @@ userSchema.methods.isStudent = function() {
 };
 
 userSchema.methods.displayName = function() {
-  return _.startCase(this.firstName + ' ' + this.lastName[0]);
+  return _.startCase(this.firstName + ' ' + this.lastName[0]) + '.';
 };
 
 var User = mongoose.model('User', userSchema);
