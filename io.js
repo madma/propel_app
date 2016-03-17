@@ -16,18 +16,17 @@ function User() {
 
 io.on('connection', function(socket) { // socket is a specific client (browser)
   console.log('Client connected to socket.io!');
+
+  socket.on('io-q-submitted', function(data){
+  //add question to the db
+  //ioQSubmitted button needs to include the userid, classroom id, and the question object
+  //the question object has all the fields from the question schema
+  //this will constitute the data being passed in
+  //construct classroom update query since questions belong to classrooms
+  //any updating we do must be done on the model so we update the model with new question data
+
+
   });
-
-socket.on('io-q-submitted', function(data){
-//add question to the db
-//ioQSubmitted button needs to include the userid, classroom id, and the question object
-//the question object has all the fields from the question schema
-//this will constitute the data being passed in
-//construct classroom update query since questions belong to classrooms
-//any updating we do must be done on the model so we update the model with new question data
-
-
-});
 
   socket.on('register-user', function(data) {
     var user = new Player();
