@@ -8,7 +8,7 @@ module.exports = {
 };
 
 
-function questionIndex(req, res, next){
+function questionIndex(req, res){
   console.log(req.params.id);
   Classroom.findById(req.params.id, function(err, classroom) {
     if (err) {
@@ -28,10 +28,11 @@ function questionCreate(req, res, next){
       res.send(err);
     } else {
       // var qclassroom = classroom[0];
-      console.log('jsut the classroom ',classroom);
+      console.log('just the classroom ',classroom);
       var newQuestion = ({
         author     : req.body.author,
         body       : req.body.body,
+        //title : req.body.title
       });
       // console.log(req.body.tags);
 
@@ -54,9 +55,10 @@ function questionCreate(req, res, next){
     }
   })
   .then(function(classroom) {
-      console.log("  -> saved!", classroom);
-      res.json(classroom);
-    })
-    .catch(function(err) { next(err); });
+    console.log("  -> saved!", classroom);
+    // socket.io emit message from here, with the newly added question sub-doc
+    res.json(classroom); //classroom.question
+  })
+  .catch(function(err) { next(err); });
 }
 

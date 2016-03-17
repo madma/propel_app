@@ -13,6 +13,7 @@
   </div>
 <!-- <div class=active if user.newUser >modal</div> -->
   <div class="linked-in-prefilled-info">
+      <p><span class="glyphicon glyphicon-list" aria-hidden="true"></p>
     <form action="submit" id="userform">
       First Name: <input type="text" name="first_name" value="<$= user.firstName $>" id="edit-fn"><br>
       Last Name: <input type="text" name="last_name" value="<$= user.lastName $>" id="edit-ln"><br>
@@ -25,6 +26,7 @@
 
     <$ if (user.type === "instructor") { $>
   <div class= "new-classroom-form">
+    <p>Ready to Create a Class?<span class="glyphicon glyphicon-list" aria-hidden="true"></p>
     <form action="submit" id="new-classroom-form">
       Type: <select id="new-classroom-type">
               <option value="course">courses</option>
@@ -39,7 +41,7 @@
   </div>
    <$ } else { $>
       <div class="input-signup-code">
-        <p>Please enter your signup code:</p>
+        <p>Please enter your signup code:<span class="glyphicon glyphicon-apple" aria-hidden="true"></p>
         <form action="submit" id="new-classroom-form"> <br>
            <p> Code: <input type="text" placeholder="012345" id="signup-code"><br></p>
         <input type="submit" id="new-classroom-form">

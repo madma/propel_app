@@ -27,8 +27,8 @@ function createQuestion(){
   console.log(newQuestionData());
   var classroomId = '56e9b41fcb3b16c659ce662c';
   return $.ajax({
-    method: 'PUT',
-    url: 'api/classrooms/' + classroomId,
+    method: 'POST',
+    url: 'api/classrooms/' + classroomId + '/questions',
     dataType: 'JSON',
     data: newQuestionData()
   });

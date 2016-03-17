@@ -1,50 +1,47 @@
 console.log("classroom function js loaded")
 
+var classrooms = [];
 
 //getting all the classroom
 var $classroomInfoTemp = _.template(`
-                                    <h4 id="<%= _id %>">
+                                    <h4 class="class-list" id="<%= _id %>">
                                       <%= name %>
                                     </h4>
                                     `);
 function renderClasses() {
-  $.ajax({
+  classrooms.forEach(function(classroom){
+    var $classTemp = $classroomInfoTemp(classroom);
+    $('#classroom-list').append($classTemp);
+  });
+  $('.class-list').on('click', function(){
+    console.log('classroom selected', $(this).attr('id'));
+    var classId = $(this).attr('id');
+    indexingQuestions(classId);
+  });
+}
+
+
+function loadClasses(){
+  return $.ajax({
     method: 'GET',
     url: '/api/classrooms'
   })
-  .then(function(classrooms){
-    "use strict";
+  .then(function(rooms){
+    classrooms = rooms;
     console.log(classrooms);
-    classrooms.forEach(function(classroom){
-      var $classTemp = $classroomInfoTemp(classroom);
-      console.log($classTemp);
-      $('#classroom-list').append($classTemp);
-      // $classTemp.on('click', function(){
-      //   console.log('classroom selected');
-      //   var classId = this.attr('id');
-      //   indexingQuestions();
-      // })
-    });
-  })
-    .then(function() {
-      $('h4').on('click', function(){
-        console.log('classroom selected', $(this).attr('id'));
-        var classId = $(this).attr('id');
-        indexingQuestions(classId);
-      });
   });
 }
 
 $( document ).ready( function() {
-  renderClasses();
-  }
-);
+  loadClasses()
+  .then(renderClasses);
+});
 
 
 
 //rendering question according to each classroom
 var $questionListEl; //<section> of where the question get posted
-var renderQuestions = _.template(`
+var tempQuestions = _.template(`
       <article id="<%= _id %>" class="">
         <div class="question-title">
           <a href="/users/<%= _id %>"><h3><%= title %></h3></a>
@@ -59,8 +56,8 @@ var renderQuestions = _.template(`
     `);
 
 //using put info in template and append to page
-function postQuestions(question){
-  var questionComponent  = renderQuestions(question);
+function renderQuestion(question){
+  var questionComponent  = tempQuestions(question);
   var $questionComponent = $(questionComponent);
       $questionListEl    = $('#question-list');
       $questionListEl.append($questionComponent);
@@ -77,7 +74,7 @@ function indexingQuestions(classId) {
     $questionListEl    = $('#question-list');
     $questionListEl.empty();
     classroom.questions.forEach(function(question){
-      postQuestions(question);
+      renderQuestion(question);
     });
   })
 }
