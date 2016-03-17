@@ -1,9 +1,11 @@
 <script>
   var newUser = '';
   var userId = '';
+  var displayName = '';
   <$ if (user) { $>
     newUser = <$= user.newUser $>;
     userId = '<$= user.id $>';
+    displayName = '<$= user.displayName() $>';
   <$ } $>
 </script>
 <script src='/js/main.js'></script>
