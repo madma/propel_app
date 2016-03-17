@@ -12,18 +12,17 @@
 <body>
 
   <$- user.newUser ? include('../partials/modal_edit_profile') : "" $>
+  <$- include('../partials/modal_add_class') $>
 <div class="container-fluid">
 
   <div class="row">
     <div class="col-md-3" id="tocpanetop">
-      <button type="button" class="btn btn-default">
-        <span class="glyphicon glyphicon-align-left glyphicon-menu-hamburger" aria-hidden="true"></span>
-    </button>
+    <button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#addClassModal" id="add-class-button">Add Class</button>
+    <$ if (user.type === "instructor") { $>
+      <button id="create-class-button">Create Class</button>
+    <$ } $>
     </div>
     <div class="col-md-9" id="questionpanetop">
-      <button type="button" class="btn btn-default">
-        <span class="glyphicon glyphicon-align-left glyphicon-education" aria-hidden="true"></span>
-    </button>
     </div>
   </div>
 
@@ -79,6 +78,7 @@
     </div> <!-- Main pane div close -->
   </div>
 </div> <!-- Container div close -->
+
 <$- include('../partials/scripts') $>
 </body>
 </html>

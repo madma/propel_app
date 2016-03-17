@@ -25,7 +25,7 @@ passport.use(new LinkedInStrategy({
         firstName: profile._json.firstName,
         lastName: profile._json.lastName,
         email: profile._json.emailAddress,
-        institution: "fml"
+        institution: "Propel"
       });
 
       newUser.save(function(err) {
