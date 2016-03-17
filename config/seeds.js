@@ -145,132 +145,135 @@ function definedUsers() {
   },  ];
 }
 
-// function definedClassrooms() {
-//   return [
-//     {
-//       name: 'WDI-DTLA-8',
-//       creator: users[0],
-//       admins: [users[0], users[1], users[2]],
-//       students: users.slice(12),
-//       professionals: [users[9], users[10], users[11]],
-//     },
-//   ];
-// }
+
 function definedClassrooms(users) {
   console.log("where stopped?")
-  return [
+  return
+//below and until the next comment are seeds before editing for a fully fledged classroom
+  [
+  {
+    name: 'WDI-DTLA-8',
+    creator: users[0],
+    admins: [users[0], users[1], users[2]],
+    students: users.slice(8),
+    professionals: [users[1], users[2], users[3]],
+    signUpCode: "123456",
+    questions: [
     {
-      name: 'WDI-DTLA-8',
-      creator: users[0],
-      admins: [users[0], users[1], users[2]],
-      students: users.slice(8),
-      professionals: [users[1], users[2], users[3]],
-      signUpCode: "123456",
-      questions: [
-                  {
-                    author: users[0],
-                    body: "WDI body of question 1",
-                    title: "working title"
-                  },
-                     {
-                    author: users[1],
-                    body: "WDI body of question 2",
-                    title: "working title"
-                  },
-                     {
-                    author: users[2],
-                    body: "WDI body of question 3",
-                    title: "working title"
-                  }
-                 ]
+      author: users[0],
+      body: "WDI body of question 1",
+      title: "working title"
     },
     {
-      name: 'UX-DTLA-6',
-      creator: users[1],
-      admins: [users[0], users[1], users[2]],
-      students: users.slice(8),
-      professionals: [users[1], users[2], users[3]],
-      signUpCode: "123111",
-      questions: [
-                  {
-                    author: users[0],
-                    body: "UX body of question 1",
-                    title: "working title"
-                  },
-                     {
-                    author: users[1],
-                    body: "UX body of question 2",
-                    title: "working title"
-                  },
-                     {
-                    author: users[2],
-                    body: "UX body of question 3",
-                    title: "working title"
-                  }
-                 ]
+      author: users[1],
+      body: "WDI body of question 2",
+      title: "working title"
     },
     {
-      name: 'DS-DTLA-1',
-      creator: users[2],
-      admins: [users[0], users[1], users[2]],
-      students: users.slice(8),
-      professionals: [users[1], users[2], users[3]],
-      signUpCode: "llllll",
-      questions: [
-                  {
-                    author: users[0],
-                    body: "DS body of question 1",
-                    title: "working title"
-                  },
-                     {
-                    author: users[1],
-                    body: "DS body of question 2",
-                    title: "working title"
-                  },
-                     {
-                    author: users[2],
-                    body: "DS body of question 3",
-                    title: "working title"
-                  }
-                 ]
+      author: users[2],
+      body: "WDI body of question 3",
+      title: "working title"
     }
-  ];
-}
+    ]
+  },
+  {
+    name: 'UX-DTLA-6',
+    creator: users[1],
+    admins: [users[0], users[1], users[2]],
+    students: users.slice(8),
+    professionals: [users[1], users[2], users[3]],
+    signUpCode: "123111",
+    questions: [
+    {
+      author: users[0],
+      body: "UX body of question 1",
+      title: "working title"
+    },
+    {
+      author: users[1],
+      body: "UX body of question 2",
+      title: "working title"
+    },
+    {
+      author: users[2],
+      body: "UX body of question 3",
+      title: "working title"
+    }
+    ]
+  },
+
+  //above are seeds before editing for a fully fledged classroom
 
 
-// {
-//   author: users[0],
-//   body: "body of question 1",
-//   title: "testing 1"
-// },
-//    {
-//   author: users[1],
-//   body: "body of question 2",
-//   title: "testing 2"
-// },
-//    {
-//   author: users[2],
-//   body: "body of question 3",
-//   title: "testing 3"
-// }
+      { //beginning of classroom object fully fledged
+        name: 'DS-DTLA-1',
+        creator: users[2],
+        admins: [users[0], users[1], users[2]],
+        students: users.slice(8),
+        professionals: [users[1], users[2], users[3]],
+        signUpCode: "llllll",
+        questions: [
+        {
+          author: users[0],
+          body: "DS body of question 1",
+          title: "working title",
+          answers: [
+          {
+            author: ,
+            body: ,
+            comments: [
+            {
+              author: ,
+              body:
+            }
+            ],
+            tags: [{}]
+          }
+          ]
+        },
+        {
+          author: users[0],
+          body: "DS body of question 1",
+          title: "working title",
+          answers: [
+          {
+            author: ,
+            body: ,
+            comments: [
+            {
+              author: ,
+              body:
+            }
+            ],
+            tags: [{}]
+          }
+          ]
+        },
+        {
+          author: users[0],
+          body: "DS body of question 1",
+          title: "working title",
+          answers: [
+          {
+            author: ,
+            body: ,
+            comments: [
+            {
+              author: ,
+              body:
+            }
+            ],
+            tags: [{}]
+          }
+          ]
+        }]
+      }
+      ];
+  }
 
+//above is one complete classroom with three questions
+//one answer per question, and one comment per answer
 
-// function definedQuestions(users) {
-//   return [
-//     {
-//       author: user[0],
-//       body: "body of question 1"
-//     },
-//        {
-//       author: user[1],
-//       body: "body of question 2"
-//     },
-//        {
-//       author: user[2],
-//       body: "body of question 3"
-//     }
-//   ];
-// }
 
 
 
