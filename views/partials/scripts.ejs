@@ -8,6 +8,8 @@
     displayName = '<$= user.displayName() $>';
   <$ } $>
 </script>
+<script src="/socket.io/socket.io.js"></script>
+<script src='/js/client_socketio.js'></script> <!-- everything below has access to socket var -->
 <script src='/js/main.js'></script>
 <script src='/js/classroom_function.js'></script>
 <script src='/js/spike_new_classroom.js'></script>
@@ -16,5 +18,3 @@
 <script src='/js/spike_first_time_login.js'></script>
 <script src='/js/spike_create_question.js'></script>
 
-<script src="/socket.io/socket.io.js"></script>
-<script src='/js/client_socketio.js'></script>

@@ -1,4 +1,5 @@
 var io = require('socket.io')();
+var questionsSocketController = require('./controllers/socket_io/questions.js');
 
 var users = [];
 
@@ -15,9 +16,8 @@ io.on('connection', function(socket) {
   // server listen for user submit new question
   socket.on('io-q-submit', function(qData){
     console.log('GOT MESSAGE FROM CLIENT WITH DATA: ', qData);
+    questionsSocketController.create(qData, io, 'io-q-added'); // io.emit('io-q-added')
   });
-
-
 });
 
 module.exports = io;
