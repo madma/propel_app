@@ -44,6 +44,9 @@ $( document ).ready( function() {
 
 //rendering question according to each classroom
 var $questionListEl; //<section> of where the question get posted
+var templateTitle = _.template(`
+      <h5><strong><%= name %></strong></h5>
+    `)
 var templateQuestions = _.template(`
       <h4>Signup Code: <%= signUpCode %></h4>
       <% questions.forEach(function(q) { %>
@@ -51,7 +54,7 @@ var templateQuestions = _.template(`
         <article id="<%= q._id %>" class="">
           <div class="question-title">
             <a href="/users/<%= q._id %>"><h3><%= q.title %></h3></a>
-            <h6> Asked by<a href="/users/<%= q.author %>"> %%= q.author fullname %%, <%= q.createdAt %></h6></a>
+            <h6> Asked by<a href="/users/<%= q.author %>"> <%= q.author %></a>, <span class="the-date" title="<%= q.createdAt %>"></span></h6>
           </div>
           <p><%= q.body %></p>
           <!-- <br> -->
@@ -65,9 +68,10 @@ var templateQuestions = _.template(`
 
 //using put info in template and append to page
 function renderQuestions(classroom){
-      $questionListEl    = $('#question-list');
-      $questionListEl.html(templateQuestions(classroom));
-
+  $questionListEl    = $('#question-list');
+  $titleEl           = $('#questionpanetop');
+  $questionListEl.html(templateQuestions(classroom));
+  $titleEl.html(templateTitle(classroom));
 }
 
 function indexingQuestions(classId) {
@@ -77,5 +81,19 @@ function indexingQuestions(classId) {
   })
   .then(function(classroom){
     renderQuestions(classroom);
+    startSetInterval();
   });
+}
+
+function startSetInterval() {
+  $('.the-date').each(function(i,e) {
+    var mome = $(e).attr('title');
+    $(this).text(moment(mome).fromNow());
+  });
+  setInterval(function() {
+    $('.the-date').each(function(i,e) {
+      var mome = $(e).attr('title');
+      $(this).text(moment(mome).fromNow());
+    });
+  }, 1000)
 }

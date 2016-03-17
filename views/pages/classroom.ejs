@@ -10,75 +10,96 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
-
-  <$- user.newUser ? include('../partials/modal_edit_profile') : "" $>
+  <$- include('../partials/modal_edit_profile') $>
   <$- include('../partials/modal_add_class') $>
   <$- include('../partials/modal_create_class') $>
-<div class="container-fluid">
 
-  <div class="row">
-    <div class="col-md-3" id="tocpanetop">
-    <button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#addClassModal" id="add-class-button">Add Class</button>
-    <$ if (user.type === "student") { $>
-      <button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#createClassModal" id="create-class-button">Create Class</button>
-    <$ } $>
-    </div>
-    <div class="col-md-9" id="questionpanetop">
-    </div>
-  </div>
+  <nav class="navbar navbar-fixed-top navigation">
+    <div class="container" id="propellogo">
+      <img class="navbar-brand" src="assets/images/navbarlogo.png" id="propellogo">
 
-  <div class="row">
-    <div class="col-md-3">
-      <div class="row">
-        <div class="col-md-12">
-          <ul id="classroom-list">
-            <!--      <h4 id="<%= _id %>>
-                        <%= name %>
-                      </h4>
-             -->
-            <!--      <h4 id="<%= _id %>>
-                        <%= name %>
-                      </h4>
-             -->
-          </ul>
-        </div>
+
+      <div id="navbar3" class="navbar-collapse collapse" id="wholedangnavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+            <ul class="dropdown-menu">
+              <li><a data-toggle="modal" data-target="#addClassModal">Add Classroom</a></li>
+              <li><a data-toggle="modal" data-target="#createClassModal">Create New Classroom</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a data-toggle="modal" data-target="#myModal">Edit Profile</a></li>
+            </ul>
+          </li>
+          <li><a href="/logout">Log Out</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+  </nav>
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-3" id="tocpanetop">
+      <button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#addClassModal" id="add-class-button">Add Class</button>
+      <$ if (user.type === "instructor") { $>
+        <button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#createClassModal" id="create-class-button">Create Class</button>
+      <$ } $>
+      </div>
+      <div class="col-md-9" id="questionpanetop">
+        <h5><strong>Class Name</strong></h5>
       </div>
     </div>
-    <div class="col-md-9">
-      <div class="row">
-        <div class="col-md-12">
-          <ul id="question-list">
-          </ul>
 
-
-
-
-
-
-          <!-- <h1 id="agendatitle">Be Careful Not To...<span class="glyphicon glyphicon-plus" id="plusicon" aria-hidden="true"></span></h1>
-          <div class="col-md-1">
-          </div>
-          <div class="col-md-11">
-            <h3 id="questiontitle"><i>What If I Already Did?</i></h3>
-            <p id="questiontext">
-            I got this issue: <strong>I already did.</strong> Specifically: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." What do?
-            </p>
-          </div>
-          <div class="col-md-11">
-            <h3 id="answertitle"><b>Undo That Shit</b></h3>
-          <div class="col-md-1">
-          </div>
-          <div class="col-md-11">
-            <p id="answertext">
-            Listen to this: <strong>Time is Reversible.</strong> Specifically: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." QED
-            </p> -->
-          </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="row">
+          <div class="col-md-12">
+            <ul id="classroom-list">
+              <!--      <h4 id="<%= _id %>>
+                          <%= name %>
+                        </h4>
+               -->
+              <!--      <h4 id="<%= _id %>>
+                          <%= name %>
+                        </h4>
+               -->
+            </ul>
           </div>
         </div>
       </div>
-    </div> <!-- Main pane div close -->
-  </div>
-</div> <!-- Container div close -->
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-12">
+            <ul id="question-list">
+            </ul>
+
+
+            <!-- <h1 id="agendatitle">Be Careful Not To...<span class="glyphicon glyphicon-plus" id="plusicon" aria-hidden="true"></span></h1>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-11">
+              <h3 id="questiontitle"><i>What If I Already Did?</i></h3>
+              <p id="questiontext">
+              I got this issue: <strong>I already did.</strong> Specifically: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." What do?
+              </p>
+            </div>
+            <div class="col-md-11">
+              <h3 id="answertitle"><b>Undo That Shit</b></h3>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-11">
+              <p id="answertext">
+              Listen to this: <strong>Time is Reversible.</strong> Specifically: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." QED
+              </p> -->
+            </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- Main pane div close -->
+    </div>
+  </div> <!-- Container div close -->
 
 <$- include('../partials/scripts') $>
 </body>
