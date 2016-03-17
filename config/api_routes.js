@@ -9,9 +9,10 @@ var questionController   = require('../controllers/question');
 
 
 // Users Resource
-router.get('/users',          apiController.usersIndex);
-router.get('/users/:id',      apiController.userShow);
-router.put('/users/:id',      apiController.userEdit);
+router.get('/users',                apiController.usersIndex);
+router.get('/users/:id',            apiController.userShow);
+router.put('/users/:id',            apiController.userEdit);
+router.put('/users/:id/addclass',   apiController.userAddClassroom);
 
 
 // Classrooms Resource

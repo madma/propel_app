@@ -3,16 +3,18 @@ console.log("classroom function js loaded")
 var classrooms = [];
 
 //getting all the classroom
-var $classroomInfoTemp = _.template(`
-                                    <h4 class="class-list" id="<%= _id %>">
-                                      <%= name %>
-                                    </h4>
-                                    `);
+var $classroomInfoTemp = _.template(
+  `
+  <h4 class="class-list" id="<%= _id %>">
+    <%= name %>
+  </h4>
+  `);
 
 function renderClasses() {
+  $('#classroom-list').empty();
   classrooms.forEach(function(classroom){
     var $classTemp = $classroomInfoTemp(classroom);
-    console.log($classTemp)
+    // console.log($classTemp)
     $('#classroom-list').append($classTemp);
   });
   $('.class-list').on('click', function(){
@@ -43,6 +45,7 @@ $( document ).ready( function() {
 //rendering question according to each classroom
 var $questionListEl; //<section> of where the question get posted
 var templateQuestions = _.template(`
+      <h4>Signup Code: <%= signUpCode %></h4>
       <% questions.forEach(function(q) { %>
 
         <article id="<%= q._id %>" class="">
