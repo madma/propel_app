@@ -18,6 +18,8 @@ $(function() {
 
   socket.on('io-q-added', function(data) {
     console.log("THE QUESTION WAS ADDED!!! QDATA: ", data);
+    // render question data and append
+    renderQuestion(data);
   });
 
   $ioASubmit.on('click', function(evt) {
@@ -54,9 +56,33 @@ function getAFormData() {
     };
 }
 
-//server update classroom db doc
+//rendering question according to each classroom
+var $questionListEl; //<section> of where the question get posted
+var templateQuestion = _.template(`
+        <article id="<%= _id %>" class="">
+          <div class="question-title">
+          <% if (upvotes.indexOf(userId) === -1) { %>
+            <button type="button" class="btn btn-default btn-sm upvote" id="up-<%= _id %>">
+          <% } else { %>
+            <button type="button" class="btn btn-default btn-sm upvote btn-success" id="up-<%= _id %>">
+          <% } %>
+              <span class="thumb-up-<%= _id %>" id="up-<%= _id %>"><%= upvotes.length %></span>
+              <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" id="up-<%= _id %>"></span>
+            </button>
+            <a href="/users/<%= _id %>"><h3><%= title %></h3></a>
+            <h6> Asked by<a href="/users/<%= author %>"> <%= displayName %>, <%= createdAt %></h6></a>
+          </div>
+          <p><%= body %></p>
+          <!-- <br> -->
+          <!-- <button>upvote</button> VoteCount <button>downvote</button> -->
+          <!-- <br> -->
+          <!-- <button>delete this question (only delete user own question)</button> -->
+        </article>
+    `);
 
-//task: find out how we will grab aQuestionId
+//using put info in template and append to page
+function renderQuestion(question){
+      $questionListEl    = $('#question-list');
+      $questionListEl.append(templateQuestion(question));
 
-
-
+}

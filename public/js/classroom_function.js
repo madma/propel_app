@@ -64,7 +64,7 @@ var templateQuestions = _.template(`
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" id="up-<%= q._id %>"></span>
             </button>
             <a href="/users/<%= q._id %>"><h3><%= q.title %></h3></a>
-            <h6> Asked by<a href="/users/<%= q.author %>"> %%= q.author fullname %%, <%= q.createdAt %></h6></a>
+            <h6> Asked by<a href="/users/<%= q.author %>"> <%= q.author.displayName %>, <%= q.createdAt %></h6></a>
           </div>
           <p><%= q.body %></p>
           <!-- <br> -->
