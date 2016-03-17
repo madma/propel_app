@@ -8,9 +8,11 @@ var $classroomInfoTemp = _.template(`
                                       <%= name %>
                                     </h4>
                                     `);
+
 function renderClasses() {
   classrooms.forEach(function(classroom){
     var $classTemp = $classroomInfoTemp(classroom);
+    console.log($classTemp)
     $('#classroom-list').append($classTemp);
   });
   $('.class-list').on('click', function(){
@@ -28,19 +30,6 @@ function loadClasses(){
   })
   .then(function(rooms){
     classrooms = rooms;
-    console.log(classrooms);
-    classrooms.forEach(function(classroom){
-      var $classTemp = $classroomInfoTemp(classroom);
-      console.log($classTemp);
-      $('#classroom-list').append($classTemp);
-    });
-  })
-    .then(function() {
-      $('h4').on('click', function(){
-        console.log('classroom selected', $(this).attr('id'));
-        var classId = $(this).attr('id');
-        indexingQuestions(classId);
-      });
   });
 }
 
