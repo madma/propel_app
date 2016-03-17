@@ -33,33 +33,32 @@ function createClassroom(){
   })
 }
 
-//Rendering classes on to classroom page
-var $classroomInfoTemp = _.template(`
-  <article id="<%= _id %>">
-    <h3><%= name %></h3>
-    <p><%= description %></p>
-    <p>Created at <%= createdAt %></p>
-  </article>
-  `);
-//getting all the classroom
-function renderClasses() {
-  $.ajax({
-    method: 'GET',
-    url: '/api/classrooms'
-  }).then(function(classrooms){
-    "use strict";
-    console.log(classrooms);
-    classrooms.forEach(function(classroom){
-      var $classTemp = $classroomInfoTemp(classroom);
-      $('#classroom-list').append($classTemp);
-    });
-  });
-}
+// //Rendering classes on to classroom page
+// var $classroomInfoTemp = _.template(`
+//                                     <h4 id="<%= _id %>">
+//                                       <%= name %>
+//                                     </h4>
+//                                     `);
+// //getting all the classroom
+// function renderClasses() {
+//   $.ajax({
+//     method: 'GET',
+//     url: '/api/classrooms'
+//   }).then(function(classrooms){
+//     "use strict";
+//     console.log(classrooms);
+//     classrooms.forEach(function(classroom){
+//       var $classTemp = $classroomInfoTemp(classroom);
+//       console.log($classTemp)
+//       $('#classroom-list').append($classTemp);
+//     });
+//   });
+// }
 
-$( document ).ready( function() {
-  renderClasses();
-  }
-);
+// $( document ).ready( function() {
+//   renderClasses();
+//   }
+// );
 
 
 

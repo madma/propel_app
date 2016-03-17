@@ -32,7 +32,5 @@ $(function() {
     };
 
     editUser(user);
-  }).then(function() {
-      $('#myModal').modal('dismiss');
   });
 });

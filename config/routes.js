@@ -51,6 +51,7 @@ router.get( '/api/classrooms', apiController.classroomIndex);
 router.post('/api/classrooms', apiController.classroomCreate);
 
 // Question Resource
-router.get('/api/classrooms/:id/', questionController.questionIndex);
+router.get('/api/classrooms/:id', questionController.questionIndex);
+router.put('/api/classrooms/:id', questionController.questionCreate);
 
 module.exports = router;

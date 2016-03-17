@@ -1,13 +1,15 @@
-  <script>
-    var newUser;
-    var userId = '';
-    <$ if (user) { $>
-      newUser = <$= user.newUser $>;
-      userId = '<$= user.id $>';
-    <$ } $>
-  </script>
+<script>
+  var newUser;
+  var userId = '';
+  <$ if (user) { $>
+    newUser = <$= user.newUser $>;
+    userId = '<$= user.id $>';
+  <$ } $>
+</script>
 <script src='/js/main.js'></script>
+<script src='/js/classroom_function.js'></script>
 <script src='/js/spike_new_classroom.js'></script>
 <script src='/js/spike_questions_render.js'></script>
 <script src='/js/spike_edit_user.js'></script>
 <script src='/js/spike_first_time_login.js'></script>
+<script src='/js/spike_create_question.js'></script>
