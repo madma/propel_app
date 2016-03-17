@@ -4,9 +4,9 @@ var User = require('../models/user');
 
 module.exports = {
   questionIndex: questionIndex,
-  questionCreate: questionCreate
+  questionCreate: questionCreate,
+  questionUpvote: questionUpvote
 };
-
 
 function questionIndex(req, res){
   console.log(req.params.id);
@@ -60,5 +60,26 @@ function questionCreate(req, res, next){
     res.json(classroom); //classroom.question
   })
   .catch(function(err) { next(err); });
+}
+
+
+function questionUpvote(req, res) {
+  Classroom.findOne({"questions._id": req.params.id}, function(err, classroom) {
+    var question = classroom.questions.id(req.params.id);
+    var userId = req.user.id;
+    var index = question.upvotes.indexOf(userId);
+    if (index === -1) {
+      question.upvotes.push(userId);
+    } else {
+      question.upvotes.splice(index,1);
+    }
+    classroom.save()
+    .then(function(){
+      res.json({
+        upvoted: index === -1 ? true : false,
+        classroomId: classroom._id
+      });
+    });
+  });
 }
 

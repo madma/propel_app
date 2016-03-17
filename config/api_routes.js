@@ -23,4 +23,7 @@ router.post('/classrooms', apiController.classroomCreate);
 router.get('/classrooms/:id', questionController.questionIndex);
 router.post('/classrooms/:id/questions', questionController.questionCreate);
 
+router.put('/questions/:id/upvote', questionController.questionUpvote);
+
+
 module.exports = router;
