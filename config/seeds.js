@@ -57,90 +57,90 @@ function closeMongoConnection() {
 function definedUsers() {
  return [
   { type: 'instructor',
-    firstName: 'Phil',
+    firstName: 'Phil',                  //0
     lastName: 'Hughes',
     email: 'pj@ga.co',
     institution: 'General Assembly',
   },
   { type: 'instructor',
     firstName: 'Ezra',
-    lastName: 'Raez',
+    lastName: 'Raez',                 //1
     email: 'ezra.raez@generalassemb.ly',
     institution: 'General Assembly',
   },
   { type: 'instructor',
     firstName: 'Jim',
-    lastName: 'Clark',
+    lastName: 'Clark',                 //2
     email: 'jim.clark@generalassemb.ly',
     institution: 'General Assembly',
   },
   { type: 'instructor',
     firstName: 'Casper',
-    lastName: 'Purtlebaugh',
+    lastName: 'Purtlebaugh',                 //3
     email: 'cassie.purtlebaugh@gmail.com',
     institution: 'General Assembly',
   },
   { type: 'instructor',
-    firstName: 'Melissa',
+    firstName: 'Melissa',                 //4
     lastName: 'Wilcox',
     email: 'melissa@emdubb.co',
     institution: 'General Assembly',
   },
   { type: 'instructor',
-    firstName: 'Michael',
+    firstName: 'Michael',                 //5
     lastName: 'Klophaus',
     email: 'mmklophaus@gmail.com',
     institution: 'General Assembly',
   },
   { type: 'instructor',
     firstName: 'Fernando',
-    lastName: 'Orozco',
+    lastName: 'Orozco',                 //6
     email: 'forozco2085@gmail.com',
     institution: 'General Assembly',
   },
   { type: 'instructor',
     firstName: 'Rob',
-    lastName: 'Gonnella',
+    lastName: 'Gonnella',                 //7
     email: 'robgonnella@gmail.com',
     institution: 'General Assembly',
   },
   { type: 'instructor',
-    firstName: 'Shanee',
+    firstName: 'Shanee',                 //8
     lastName: 'Gilboa',
     email: 'shanee85@gmail.com',
     institution: 'General Assembly',
   },
   { type: 'professional',
     firstName: 'Jude',
-    lastName: 'Molke',
+    lastName: 'Molke',                 //9
     email: 'jude@generalassemb.ly',
     institution: 'General Assembly',
   },
   { type: 'professional',
     firstName: 'Meredith',
-    lastName: 'Bryan',
+    lastName: 'Bryan',                 //10
     email: 'meredith.bryan@ga.co',
     institution: 'General Assembly',
   },
   { type: 'professional',
     firstName: 'Kate',
     lastName: 'Rogers',
-    email: 'kate.rogers@generalassemb.ly',
+    email: 'kate.rogers@generalassemb.ly',                 //11
     institution: 'General Assembly',
   },
-  { firstName: 'Claire',
-    lastName: 'Savage',
-    email: 'clairejsavage@gmail.com',
+  { firstName: 'James',
+    lastName: 'Coslett',
+    email: 'james.coslett@gmail.com',                 //12
     institution: 'General Assembly',
   },
-  { firstName: 'Karen',
-    lastName: 'Quan',
-    email: 'quan.karen@gmail.com',
+  { firstName: 'Markus',
+    lastName: 'Dioguardi',
+    email: 'markus.dioguardi@gmail.com',                 //13
     institution: 'General Assembly',
   },
-  { firstName: 'Yael',
-    lastName: 'Amir',
-    email: 'yaelamir1@gmail.com',
+  { firstName: 'Duane',
+    lastName: 'Than',
+    email: 'duanethangmail.com',                 //14
     institution: 'General Assembly',
   },  ];
 }
@@ -155,9 +155,9 @@ function definedClassrooms(users) {
     name: 'WDI-DTLA-8',
     creator: users[0],
     admins: [users[0], users[1], users[2]],
-    students: users.slice(8),
+    students: users.slice(-3);
     professionals: [users[1], users[2], users[3]],
-    signUpCode: "123456",
+    signUpCode: "8888888",
     questions: [
     {
       author: users[0],
@@ -206,35 +206,35 @@ function definedClassrooms(users) {
 
 
       { //beginning of classroom object fully fledged
-        name: 'DS-DTLA-1',
+        name: 'WDI-DTLA-8',
         creator: users[2],
         admins: [users[0], users[1], users[2]],
-        students: users.slice(8),
+        students: users.slice(-3),
         professionals: [users[1], users[2], users[3]],
-        signUpCode: "llllll",
+        signUpCode: "8888888",
         questions: [
         {
-          author: users[0],
-          body: "DS body of question 1",
-          title: "working title",
+          author: users[14],
+          body: "That's not to say I don't have my suspicions. It all started with the fun facts. Some wiseaccre logged in as Tanuga Falls and ripped my world report. Who are they? Where do they come from? Where are they coding? My investigation has gone international, with some deep and mysterious instruments of statecraft apparently at work to thwart my quest for the truth and bury the answer forever. This forum is my last recourse. Who is Tanuga Falls?",
+          title: "This is driving me crazy. Who's Tanuga Falls?",
           answers: [
           {
-            author: ,
-            body: ,
+            author: users[9],
+            body: "It's Phil, lol. Camp Tanuga is his ancestral summer camp, a mere 380 miles from Cleveland. ",
             comments: [
             {
-              author: ,
-              body:
+              author: users[0],
+              body: "This is an official denial."
             }
             ],
-            tags: [{}]
+            tags: [{taggy tag tag tags}]
           }
           ]
         },
         {
-          author: users[0],
-          body: "DS body of question 1",
-          title: "working title",
+          author: users[12],
+          body: "Move Hamburger with Sidebar?",
+          title: "I'm doing a sidebar; when tracing the button it shows, but when tracing back it's hidden. THE PROBLEM: What happens? What I want is:depending on the screen resolution, get it to remain in the same place without pressing the button. Now when I go to another PC of small resolution, 1400x by 800x, say, it is not in place. Also when clicking the button, I extand the sidebar and it's right next to the window button. What happens now is that when I click on the button, it magically becomes a hamburger. Huh?"
           answers: [
           {
             author: ,
@@ -245,25 +245,25 @@ function definedClassrooms(users) {
               body:
             }
             ],
-            tags: [{}]
+            tags: [{hamburgers, wootbeer}]
           }
           ]
         },
         {
-          author: users[0],
-          body: "DS body of question 1",
-          title: "working title",
+          author: users[13],
+          body: "I ACCIDENTALLY TURNED IT ON YESTERDAY AND DON'T KNOW HOW TO TURN IT BACK OFF. ALL MY FRIENDS ARE MAD BEDAUSE THEY THINK I AM SHOUTING AT THEM OVER THE INTERNET, THIS PROBLEM IS LITERALLY RUINING MY LIFE, MY CAREER, AND TEARING MY FAMILY APART. XI JINPING WANTS TO KICK ME OUT OF CHINA. I JUST WANT TO BE WHOLE AGAIN, PLEASE HELP"
+          title: "HOW DO I TURN OFF MY CAPS LOCK?",
           answers: [
           {
-            author: ,
-            body: ,
+            author: users[jim],
+            body: "YES, CAPS LOCK IS A REALLY SERIOUS PROBLEM NOWADAYS AND THEN YOU GET ADDICTED TO IT. I THINK PEOPLE SHOULD BE MORE CAREFUL AND SENSIBLE WITH CAPSLOCKADDICTED PEOPLE. WITH A STRONG WILL, I THINK YOU CAN OVERCOME IT AND PRESS THE CAPSLOCK BUTTON AT LAST"
             comments: [
             {
-              author: ,
-              body:
+              author: users[13],
+              body: "WORKED LIKE A CHARM THANKS"
             }
             ],
-            tags: [{}]
+            tags: [{CAPSLOCK}]
           }
           ]
         }]
