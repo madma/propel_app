@@ -37,7 +37,14 @@ module.exports = {
 
 //can we delete answers or should we? can we update them?
 
-
-
 //how do we get questionid, classroom id, and figure out how to store it and where
 //keith might have made an array of pushed info which he then renders but we have to double-check
+
+//Keith says:
+
+//the answer id shouldn't be generated at the point when we do socket.io since the answer is not yet saved to the database
+
+//since an event listener is being linked up, we can grab the id from the click event and then find the id somehow
+
+//then send in a json data package
+

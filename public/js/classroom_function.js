@@ -1,6 +1,7 @@
 console.log("classroom function js loaded")
 
 var classrooms = [];
+var classId    = "";
 
 //getting all the classroom
 var $classroomInfoTemp = _.template(`
@@ -17,7 +18,7 @@ function renderClasses() {
   });
   $('.class-list').on('click', function(){
     console.log('classroom selected', $(this).attr('id'));
-    var classId = $(this).attr('id');
+    classId = $(this).attr('id');
     indexingQuestions(classId);
   });
 }

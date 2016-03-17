@@ -37,11 +37,11 @@ $(function() {
 
 function getQFormData() {
   return {
-      //qClassroomId:
+      qClassroomId: classId,
       qAuthorId: userId,
       qTitle:    $('#q-form-title').val(),
       qBody:     $('#q-form-body').val(),
-      qTags:     $('#q-form-tags').val(),
+      // qTags:     [$('#q-form-tags').val()],
     };
 }
 
