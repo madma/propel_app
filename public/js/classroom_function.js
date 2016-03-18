@@ -71,6 +71,9 @@ var templateQuestions = _.template(`
             <h6> Asked by<a href="/users/<%= q.author %>"> <%= q.author.displayName %></a>, <span class="the-date" title="<%= q.createdAt %>"></span></h6>
           </div>
           <p><%= q.body %></p>
+          <% q.tags.forEach(function(tag) { %>
+            <span class="label label-default"><%= tag.tag %></span>
+          <% }) %>
           <!-- <br> -->
           <!-- <button>upvote</button> VoteCount <button>downvote</button> -->
           <!-- <br> -->
