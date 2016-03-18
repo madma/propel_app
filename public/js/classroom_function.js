@@ -1,7 +1,9 @@
 console.log("classroom function js loaded")
 
 var classrooms = [];
+var currentRoom;
 var classId    = "";
+var $sortSl        = $('#sort');
 
 //getting all the classroom
 var $classroomInfoTemp = _.template(
@@ -90,16 +92,31 @@ var templateQuestions = _.template(`
           <!-- <br> -->
           <!-- <button>delete this question (only delete user own question)</button> -->
         </article>
-
       <% }) %>
     `);
 
+ // ['user', 'age'], ['asc', 'desc']);
+
 //using put info in template and append to page
-function renderQuestions(classroom){
+function renderQuestions(){
   $titleEl           = $('#questionpanetop');
-  $titleEl.html(templateTitle(classroom));
+  $titleEl.html(templateTitle(currentRoom));
   $questionListEl    = $('#question-list');
-  $questionListEl.html(templateQuestions(classroom));
+  var sortRoom = currentRoom;
+  if ($sortSl.val() === "Newest") {
+    sortRoom.questions = _.orderBy(sortRoom.questions, ['createdAt'], ['asc', 'desc']);
+  } else if ($sortSl.val() === "Upvotes") {
+    sortRoom.questions = _.orderBy(sortRoom.questions, ['upvotes'], ['desc', 'asc']);
+  } else if ($sortSl.val() === "Oldest") {
+    sortRoom.questions = _.orderBy(sortRoom.questions, ['createdAt'], ['asc', 'desc']);
+  }
+  // else if ($sortSl.val() === "Your Questions") {
+  //   sortRoom.questions = sortRoom.questions.filter( function(question){
+  //     return question == userId
+  //   });
+  // }
+
+  $questionListEl.html(templateQuestions(sortRoom));
   $('#ask-question').append($askQuestionBtn);
 }
 
@@ -109,7 +126,8 @@ function indexingQuestions(classId) {
     url: "api/classrooms/" + classId,
   })
   .then(function(classroom){
-    renderQuestions(classroom);
+    currentRoom = classroom;
+    renderQuestions(currentRoom);
     startSetInterval();
   });
 }
@@ -126,3 +144,10 @@ function startSetInterval() {
     });
   }, 1000)
 }
+
+
+//sort question by upvotes and recent
+$sortSl.change(function(){
+  console.log("change")
+  renderQuestions(currentRoom);
+});
