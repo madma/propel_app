@@ -10,13 +10,6 @@ io.on('connection', function(socket) {
     console.log('GOT MESSAGE FROM CLIENT WITH DATA: ', qData);
     classroomsController.createField('question', qData, io, 'io-q-added');
   });
-
-  // socket.on('io-a-submit', function(aData){
-  //   console.log('GOT MESSAGE FROM CLIENT WITH DATA: ', aData);
-  //   answersSocketController.create(aData, io, 'io-a-added');
-  // });
-
-
 });
 
 

@@ -4,7 +4,7 @@ var Classroom = require('../../models/classroom');
 
 function ioFormatQData(data) {
   return {
-      qClassroomId: data.qClassroomId,
+      // qClassroomId: data.qClassroomId,
       author:   data.qAuthorId,
       title:    data.qTitle,
       body:     data.qBody,

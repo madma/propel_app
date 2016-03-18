@@ -43,8 +43,12 @@ function getQFormData() {
       qAuthorId: userId,
       qTitle:    $('#q-form-title').val(),
       qBody:     $('#q-form-body').val(),
-      // qTags:     [$('#q-form-tags').val()],
+      qTags:     makeTagObjArray($('#q-form-tags').val(), userId)
     };
+}
+
+function makeTagObjArray(tagsString, addedBy) {
+  return _.words(tagsString).map(t => ({tag: t, owner: addedBy}));
 }
 
 function getAFormData() {
@@ -73,6 +77,9 @@ var templateQuestion = _.template(`
             <h6> Asked by<a href="/users/<%= author %>"> <%= displayName %>, <%= createdAt %></h6></a>
           </div>
           <p><%= body %></p>
+          <% tags.forEach(function(tag) { %>
+            <span class="label label-default"><%= tag.tag %></span>
+          <% }) %>
           <!-- <br> -->
           <!-- <button>upvote</button> VoteCount <button>downvote</button> -->
           <!-- <br> -->

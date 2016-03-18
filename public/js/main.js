@@ -7,8 +7,9 @@ function userAddClassroom (user) {
     url: 'api/users/' + userId + '/addclass',
     dataType: 'JSON',
     data: user
-  }).then(function(user){
-    console.log(user);
+  }).then(function(classroom){
+    classrooms.push(classroom)
+    renderClasses(classroom)
   })
 }
 
