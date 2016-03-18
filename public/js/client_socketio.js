@@ -33,6 +33,11 @@ $(function() {
     socket.emit('io-a-submit', aData);
   });
 
+  socket.on('io-a-added', function(data) {
+    console.log("ANSWER added (io-a-added): ", data);
+    // renderQuestion(data);
+  });
+
 
 
 

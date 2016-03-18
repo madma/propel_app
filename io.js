@@ -14,7 +14,7 @@ io.on('connection', function(socket) {
   // server listen for user submit new ANSWER
   socket.on('io-a-submit', function(aData){
     console.log('GOT MESSAGE FROM CLIENT WITH ANSWER DATA: ', aData);
-    // classroomsController.createField('answer', aData, io, 'io-a-added');
+    classroomsController.createField('answer', aData, io, 'io-a-added');
   });
 });
 
