@@ -4,6 +4,8 @@ $(function() {
 
   var ioQSubmit = '#io-q-submit-btn';
   var $ioQSubmit = $(ioQSubmit);
+
+
   var ioASubmit = '#io-a-submit-btn';
   var $ioASubmit = $(ioASubmit);
 
@@ -54,8 +56,8 @@ function makeTagObjArray(tagsString, addedBy) {
 
 function getAFormData() {
   return {
-    //aClassroomId:
-    //aQuestionId:
+    aClassroomId: classId,
+    aQuestionId: $('#a-add-btn').data('qid'),
     aAuthorId: userId,
     aBody:     $('#a-form-body').val()
   };
@@ -77,7 +79,7 @@ var templateQuestion = _.template(`
             </button>
 
 
-            <a data-toggle="modal" data-target="#aAddModal" id="a-add-btn"><h3><%= title %></h3></a>
+            <a id="a-add-btn" data-toggle="modal" data-target="#aAddModal" data-qid="<%= _id %>"><h3><%= title %></h3></a>
 
 
             <h6> Asked by<a href="/users/<%= author %>"> <%= displayName %></a>, <span class="the-date" data-ts="<%= createdAt %>"></span></h6>
