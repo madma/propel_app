@@ -1,11 +1,16 @@
 <script>
-  var newUser;
+  var newUser = '';
   var userId = '';
+  var displayName = '';
   <$ if (user) { $>
     newUser = <$= user.newUser $>;
     userId = '<$= user.id $>';
+    displayName = '<$= user.displayName() $>';
   <$ } $>
 </script>
+<script src="/socket.io/socket.io.js"></script>
+<script src='/js/client_socketio.js'></script> <!-- everything below has access to socket var -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js'></script>
 <script src='/js/main.js'></script>
 <script src='/js/classroom_function.js'></script>
 <script src='/js/spike_q_upvote.js'></script>
@@ -14,3 +19,4 @@
 <script src='/js/spike_edit_user.js'></script>
 <script src='/js/spike_first_time_login.js'></script>
 <script src='/js/spike_create_question.js'></script>
+

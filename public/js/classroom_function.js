@@ -1,6 +1,7 @@
 console.log("classroom function js loaded")
 
 var classrooms = [];
+var classId    = "";
 
 //getting all the classroom
 var $classroomInfoTemp = _.template(
@@ -19,7 +20,7 @@ function renderClasses() {
   });
   $('.class-list').on('click', function(){
     console.log('classroom selected', $(this).attr('id'));
-    var classId = $(this).attr('id');
+    classId = $(this).attr('id');
     indexingQuestions(classId);
   });
 }
@@ -48,6 +49,10 @@ $( document ).ready( function() {
 
 //rendering question according to each classroom
 var $questionListEl; //<section> of where the question get posted
+var templateTitle = _.template(`
+      <h5><strong><%= name %></strong></h5>
+    `)
+var $askQuestionBtn = $('<button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#qAddModal" id="q-add-btn"><strong>Ask a Question?</strong></button>');
 var templateQuestions = _.template(`
       <h4>Signup Code: <%= signUpCode %></h4>
       <% questions.forEach(function(q) { %>
@@ -63,7 +68,7 @@ var templateQuestions = _.template(`
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" id="up-<%= q._id %>"></span>
             </button>
             <a href="/users/<%= q._id %>"><h3><%= q.title %></h3></a>
-            <h6> Asked by<a href="/users/<%= q.author %>"> %%= q.author fullname %%, <%= q.createdAt %></h6></a>
+            <h6> Asked by<a href="/users/<%= q.author %>"> <%= q.author.displayName %></a>, <span class="the-date" title="<%= q.createdAt %>"></span></h6>
           </div>
           <p><%= q.body %></p>
           <!-- <br> -->
@@ -77,9 +82,11 @@ var templateQuestions = _.template(`
 
 //using put info in template and append to page
 function renderQuestions(classroom){
-      $questionListEl    = $('#question-list');
-      $questionListEl.html(templateQuestions(classroom));
-
+  $titleEl           = $('#questionpanetop');
+  $titleEl.html(templateTitle(classroom));
+  $questionListEl    = $('#question-list');
+  $questionListEl.html(templateQuestions(classroom));
+  $('#ask-question').append($askQuestionBtn);
 }
 
 function indexingQuestions(classId) {
@@ -89,6 +96,19 @@ function indexingQuestions(classId) {
   })
   .then(function(classroom){
     renderQuestions(classroom);
-    // upvoteListener();
+    startSetInterval();
   });
+}
+
+function startSetInterval() {
+  $('.the-date').each(function(i,e) {
+    var mome = $(e).attr('title');
+    $(this).text(moment(mome).fromNow());
+  });
+  setInterval(function() {
+    $('.the-date').each(function(i,e) {
+      var mome = $(e).attr('title');
+      $(this).text(moment(mome).fromNow());
+    });
+  }, 1000)
 }
