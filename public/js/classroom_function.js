@@ -80,7 +80,7 @@ var templateQuestions = _.template(`
               <span class="thumb-up-<%= q._id %>" id="up-<%= q._id %>"><%= q.upvotes.length %></span>
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" id="up-<%= q._id %>"></span>
             </button>
-            <a href="#" class="question-expand" id="<%= index %>"><h3 id="<%= index %>"><%= q.title %></h3></a>
+            <a href="#" class="question-expand" id="<%= index %>"><h3 data-toggle="modal" data-target="#qa-render-modal" id="<%= index %>"><%= q.title %></h3></a>
             <h6> Asked by<a href="/users/<%= q.author %>"> <%= q.author.displayName %></a>, <span class="the-date" data-ts="<%= q.createdAt %>"></span></h6>
           </div>
           <p><%= q.body %></p>
@@ -179,8 +179,8 @@ function viewAns(){
 </article>
 
 <% answers.forEach(function(a){ %>
-  <h3 id="<%= a._id %>"><%= a.author %></h3></a>
-  <h6> Answered by<a href="/users/<%= a.author %>"> <%= a.author.displayName %></a>, <span class="the-date" data-ts="<%= a.createdAt %>"></span></h6>
+  <h4 id="<%= a._id %>"><%= a.body %></h4></a>
+  <h6> Answered by<a href="/users/<%= a.author %>"> <%= a.author %></a>, <span class="the-date" data-ts="<%= a.createdAt %>"></span></h6>
 <% }) %>`);
 
 
