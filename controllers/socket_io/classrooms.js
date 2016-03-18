@@ -60,12 +60,8 @@ function createField(field, data, ioServer, serverEmitMessage) {
 
     case 'answer':
       var aObject = ioFormatAData(data);
-      // console.log("DATA", data);
       Classroom.findById(data.aClassroomId).exec()
       .then(function(classroom) {
-        // console.log("clas", classroom);
-        // console.log("questions", classroom.questions);
-        // console.log('question itself', classroom.questions.id(data.aQuestionId));
         var question = classroom.questions.id(data.aQuestionId);
         var answerSubDoc = question.answers.create(aObject);
 
@@ -73,10 +69,6 @@ function createField(field, data, ioServer, serverEmitMessage) {
         console.log('saved question', question);
 
         return classroom.save()
-        // .then(function(question) {
-        //   question.answers.push(answerSubDoc);
-        //   return classroom.save().then(function() { return answerSubDoc; });
-        // })
       })
       .then(function(createdItem) {
         console.log(createdItem);
@@ -85,7 +77,6 @@ function createField(field, data, ioServer, serverEmitMessage) {
           var createdItemObj = createdItem.toObject();
           // add the author's displayName
           // createdItemObj.displayName = author.displayName();
-
           return createdItemObj;
         });
       })
@@ -105,11 +96,3 @@ function createField(field, data, ioServer, serverEmitMessage) {
       break;
   }
 }
-
-// in classrooms collection in questions array field find the doc with _id field equal to 56eb...
-// db.classrooms.find(
-//   {questions:
-//     {$elemMatch:
-//       {_id: ObjectId("56eb5a8c35b74aef2c3ae3fa")}
-//     }
-//   });
