@@ -14,18 +14,28 @@ function userAddClassroom(req, res, next) {
   var userId = req.params.id;
   Classroom.findOne({ "signUpCode": req.body.classroom })
   .then(function(classroom) {
+
+    if (classroom.students.indexOf(userId) === -1) {
+      classroom.students.push(userId);
+    }
+    return classroom.save()
+  .then(function(classroom) {
+
     User.findById(userId, function(err, user) {
       if (err) return res.send(err);
       var classId = classroom._id;
+
       if (user.classrooms.indexOf(classId) === -1) {
         user.classrooms.push(classId);
       }
+
       user.save(function(err, updatedUser) {
         if (err) return res.send(json);
-        res.json(updatedUser);
+        res.json(classroom);
+        });
       });
-    })
-  })
+    });
+  });
 }
 
 //function for classroomIndex
@@ -129,22 +139,6 @@ function classroomCreate(req, res, next) {
     })
     .catch(function(err) { next(err); });
 };
-
-
-//supply new classCode to newclassroom
-// function makeThreadId() {
-//   console.log("only once??")
-//   var code = "";
-//   Classroom.find({}, function(err, classrooms) {
-//     if (err) {
-//       res.send(err);
-//     } else {
-//       code = compareCode(classrooms);
-//       console.log("12345", code);
-//       return code;
-//     }
-//   });
-// }
 
 //generating random classcode
 function generateClassCode() {
