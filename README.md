@@ -1,3 +1,32 @@
+# Propel! learning, boosted.
+
+
+Propel! is a real-time Questions and Answers app specifically created for in-class training for higher education.  It can be frustrating and a bit overwhelming to have a question during the class, and not having/taking the opportunity to ask in that moment.  Now students can seize that moment, and receive answers immediately from the instructor or their peers...and even industry professionals, instantly.  While there are sites such as Stack Overflow that have a Q/A forums, it's sometimes extremely difficult to sift through the things that are irrelevant to a student's precise question, or to interpret the answers for their own purpose.  Propel! offers the student the unique opportunity to receive answers from his/her peers, instructor(s), and industry professionals immediately and tailored specifically for their enrichment.
+
+
+## Who benefits and how?
+
+* Obviously, the student who initiates the question has instant access to answers and avoids the potential to either forget about their question or waste valuable time searching for an answer that may lead them to having even more questions.  Also, that student could start open dialogue with someone currently working in their chosen field, thus building their professional network.
+* The instructor can answer the questions they may have normally missed. Also, if there's a subject matter that has a particularly high volume of the same type of questions, she/he can take the proper steps to rearrange the way they disseminate, or further elucidate that information.
+* Students who answer the questions, have the chance to reinforce what they've learned by explaining the principles incorporated into the subject matter. Their peers can also submit an upvote on answers that are deemed sound, and the more a student receives upvotes for the various questions answered, they'll be awarded higher status as a user with technical expertise.
+
+## Ambitious? Yes.
+
+One of the beautiful things about Propel! is its potential to grow and emerge.  A couple of features that will be implemented in the near future are:
+
+* A working professional, via our LinkedIn API, gets a chance to stay sharp on basic skills and add an element of mentorship to the students. If that professional is a part of the talent acquisition element of his/her company, they can tap into a valuable resource of promising talent, as well.
+* Multiple institutions will be able to join the discussions, offering a view into their course work, and providing a different perspective in the learning process.
+
+Ambition is what draws you to Propel! in the first place!
+
+
+
+## Get started now!
+It's as easy as clicking our login button and granting LinkedIn authorization to release the information you agree to.  Propel! will ask a for a few extra bits of information to ensure you're able to participate in your proper class or subject matter.  You don't have to worry about creating a new password, only to forget it later.
+
+If you're ready for a fast-paced, thorough, and engaging learning experience, that will most certainly add a boost to your future endeavors, Propel! is just the vehicle for you!
+ 
+=======
 # Propel!
 ###Learning, boosted.
 
