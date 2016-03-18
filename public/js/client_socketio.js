@@ -4,6 +4,8 @@ $(function() {
 
   var ioQSubmit = '#io-q-submit-btn';
   var $ioQSubmit = $(ioQSubmit);
+
+
   var ioASubmit = '#io-a-submit-btn';
   var $ioASubmit = $(ioASubmit);
 
@@ -16,6 +18,14 @@ $(function() {
     socket.emit('io-q-submit', qData);
   });
 
+  socket.on('io-q-added', function(data) {
+    console.log("Question added (io-q-added): ", data);
+    renderQuestion(data);
+  });
+
+
+
+
   $ioASubmit.on('click', function(evt) {
     // evt.preventDefault();
     var aData = getAFormData();
@@ -23,10 +33,15 @@ $(function() {
     socket.emit('io-a-submit', aData);
   });
 
-  socket.on('io-q-added', function(data) {
-    console.log("Question added (io-q-added): ", data);
-    renderQuestion(data);
+  socket.on('io-a-added', function(data) {
+    console.log("ANSWER added (io-a-added): ", data);
+    // renderQuestion(data);
   });
+
+
+
+
+
 });
 
 
@@ -46,12 +61,13 @@ function makeTagObjArray(tagsString, addedBy) {
 
 function getAFormData() {
   return {
-    //aClassroomId:
-    //aQuestionId:
+    aClassroomId: classId,
+    aQuestionId: $('#a-add-btn').data('qid'),
     aAuthorId: userId,
     aBody:     $('#a-form-body').val()
   };
 }
+
 
 //rendering question according to each classroom
 var $questionListEl; //<section> of where the question get posted
@@ -66,7 +82,11 @@ var templateQuestion = _.template(`
               <span class="thumb-up-<%= _id %>" id="up-<%= _id %>"><%= upvotes.length %></span>
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" id="up-<%= _id %>"></span>
             </button>
-            <a href="/users/<%= _id %>"><h3><%= title %></h3></a>
+
+
+            <a id="a-add-btn" data-toggle="modal" data-target="#aAddModal" data-qid="<%= _id %>"><h5>Click to answer this question!</h5></a>
+            <a href="#" class="question-expand"><h3 id="<%= currentRoom.questions.length %>"><%= title %></h3></a>
+
             <h6> Asked by<a href="/users/<%= author %>"> <%= displayName %></a>, <span class="the-date" data-ts="<%= createdAt %>"></span></h6>
           </div>
           <p><%= body %></p>

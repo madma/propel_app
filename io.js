@@ -7,8 +7,14 @@ io.on('connection', function(socket) {
 
   // server listen for user submit new question
   socket.on('io-q-submit', function(qData){
-    console.log('GOT MESSAGE FROM CLIENT WITH DATA: ', qData);
+    console.log('GOT MESSAGE FROM CLIENT WITH QUESTION DATA: ', qData);
     classroomsController.createField('question', qData, io, 'io-q-added');
+  });
+
+  // server listen for user submit new ANSWER
+  socket.on('io-a-submit', function(aData){
+    console.log('GOT MESSAGE FROM CLIENT WITH ANSWER DATA: ', aData);
+    classroomsController.createField('answer', aData, io, 'io-a-added');
   });
 });
 

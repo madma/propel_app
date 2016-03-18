@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <$- include('../partials/head') $>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link rel="stylesheet" href="css/test_classroom.css">
+  <!--bootstrap-->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body id="body-override">
+  <$- include('../partials/modal_edit_profile') $>
+  <$- include('../partials/modal_add_class') $>
+  <$- include('../partials/modal_add_question') $>
+  <$- include('../partials/modal_create_class') $>
+
+  <nav class="navbar navbar-fixed-top navigation">
+    <div class="container" id="propellogo">
+      <img class="navbar-brand" src="assets/images/navbarlogo.png" id="propellogo">
+
+
+      <div id="navbar3" class="navbar-collapse collapse" id="wholedangnavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Welcome <$= user.firstName $></a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+            <ul class="dropdown-menu">
+              <li><a data-toggle="modal" data-target="#addClassModal">Add Classroom</a></li>
+              <$ if (user.type === "student") { $>
+              <li><a data-toggle="modal" data-target="#createClassModal">Create New Classroom</a></li>
+              <$ } $>
+              <li role="separator" class="divider"></li>
+              <li><a data-toggle="modal" data-target="#myModal">Edit Profile</a></li>
+            </ul>
+          </li>
+          <li><a href="/logout">Log Out</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+  </nav>
+
+
+
+  <div id="left-column">
+    <h3 id="left-column-heading"><strong>Classrooms</strong></h3>
+    <div id="class-column">
+      <div id="classroom-list-div">
+        <ul id="classroom-list">
+
+        </ul>
+      </div>
+    </div>
+
+    <div>
+        <div data-toggle="modal" data-target="#addClassModal" class="class-buttons" id="add-class-button">Add</div>
+      <$ if (user.type === "student") { $>
+        <div data-toggle="modal" data-target="#createClassModal" class="class-buttons" id="create-class-button">Create</div>
+      <$ } $>
+    </div>
+  </div>
+
+
+  <div id="right-column">
+    <div id="dropdown-sort">
+      <p class="inline">Sort By: </p>
+        <select class="drop-down-sort inline" name="sort" id="sort" onchange="">
+          <option value="Newest" selected="selected">Newest</option>
+          <option value="Upvotes">Upvotes</option>
+          <option value="Oldest">Oldest</option>
+        </select>
+    </div>
+
+    <div id="classroom-header">
+      <h3 class="class-title-h3">Class Name</h3>
+    </div>
+    <div>
+      <ul id="question-list">
+
+      </ul>
+    </div>
+  </div>
+
+<$- include('../partials/scripts') $>
+</body>
+</html>
+
