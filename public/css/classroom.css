@@ -1,62 +1,114 @@
-body {
-  padding-top: 60px;
+#left-column {
+  float: left;
+  width: 15%;
+  background-color: #f0f0ff;
+}
+
+#right-column {
+  float: right;
+  width: 85%;
+  padding: 15px;
+}
+
+#dropdown-sort {
+  float: right;
+}
+
+#left-column-heading {
+  padding: 5px 15px 5px 10px;
+  text-align: center;
+}
+
+.class-title-h3 {
+  margin-top: 10px;
+}
+
+#classroom-list {
+  /*overflow-y: scroll;*/
+}
+
+#body-override, #html-override {
+  padding-top: 50px;
+  background-color: #F8F8FF;
+  height: 100%;
+/*  top: 0;
+  bottom:0;
+  position:fixed;
+  overflow-y:scroll;
+  overflow-x:hidden;*/
 }
 
 .navigation {
-  background-color: #e3e3e3;
+  background-color: #cfcfe5;
 }
 
-.col-md-9{
-  padding:1% 5% 1% 5%;
-  overflow: auto;
-  position:absolute;
-  }
-
-.col-md-3 {
-  background-color:#FAFAFA;
+.col-md-10{
   padding: 1% 5% 1% 5%;
   overflow: auto;
-  position:absolute;
-  }
-
-#questionpanetop{
-  background-color:#fafafa;
-  padding: 1%;
+  position: absolute;
 }
 
-#tocpanetop{
-  background-color:#e3e3e3;
+.col-md-2 {
+  padding: 1% 5% 1% 5%;
+  overflow: auto;
+  position: absolute;
 }
 
-#selected{
-  background-color: grey;
+.class-buttons {
+  text-align: center;
 }
 
-#plusicon{
-  float: right;
+.class-buttons:hover {
+  background-color: #cfcfe5;
+  cursor: pointer;
 }
 
-#plusicon:hover{
-  float: right;
-  color: white;
-  background-color: black;
+#class-column {
 }
 
-#agendatitle{
-
+.class-list {
+  padding: 5px 10px;
+  text-align: center;
 }
 
-#questiontitle{
-  text-align:right;
+.class-list:hover {
+  background-color: #cfcfe5;
+  cursor: pointer;
 }
 
-#questiontext{
-  text-align:left;
+#classroom-list-div {
+  padding: 0;
+  overflow: auto;
+}
+
+.question-row{
+  padding-left: 15px;
+}
+
+.question-body {
+  font-size: 10px;
+}
+
+.question-article{
+  border-bottom: 1px solid #E9E9E9;
+  padding: 10px 0;
 }
 
 #classroom-list {
   padding: 0;
   list-style-type: none;
+}
+
+.button-question{
+  display: inline;
+}
+
+.inline {
+  display: inline;
+}
+
+#create-class-button, #add-class-button{
+  padding: 10px;
 }
 
 #question-list {
