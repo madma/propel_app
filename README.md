@@ -33,7 +33,15 @@ A variety of languages, frameworks, libraries, and other technologies were used 
 
 Our team took advantage of the AGILE approach to development. AGILE encourages developers to envision project features in terms of the needs of site users. To this end, we generated numerous "user stories": what users would want to do or see on the site, and why.
 
-We then generated static visuals to begin realizing our user stories. These included wireframes, or diagrams, of site views. Concurrently, we developed a "pitch deck" that expressed our developing vision for Propel in terms of a business proposition to be pitched to investors.
+> As a user, I want to receive answers to my questions from my fellow students, my instructors and professionals working in the industry.
+
+We then generated static visuals to begin realizing our user stories. These included wireframes, or diagrams, of site views. 
+
+[Imgur](http://i.imgur.com/9HfYKVH.jpg?1)
+
+Concurrently, we developed a "pitch deck" that expressed our developing vision for Propel in terms of a business proposition to be pitched to investors.
+
+
 
 Development then proceeded along two parallel paths: front-end web design beside back-end functionality. Once front-end views were templated, they were converted into embedded javascript files, a requirement for making our website a dynamic entity. At the same time, a great deal of applied logic went into creating seed data, routes, controller actions, and other computational structures.
 
