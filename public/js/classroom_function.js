@@ -52,6 +52,7 @@ var $questionListEl; //<section> of where the question get posted
 var templateTitle = _.template(`
       <h5><strong><%= name %></strong></h5>
     `)
+var $askQuestionBtn = $('<button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#qAddModal" id="q-add-btn"><strong>Ask a Question?</strong></button>');
 var templateQuestions = _.template(`
       <h4>Signup Code: <%= signUpCode %></h4>
       <% questions.forEach(function(q) { %>
@@ -81,10 +82,11 @@ var templateQuestions = _.template(`
 
 //using put info in template and append to page
 function renderQuestions(classroom){
-  $questionListEl    = $('#question-list');
   $titleEl           = $('#questionpanetop');
-  $questionListEl.html(templateQuestions(classroom));
   $titleEl.html(templateTitle(classroom));
+  $questionListEl    = $('#question-list');
+  $questionListEl.html(templateQuestions(classroom));
+  $('#ask-question').append($askQuestionBtn);
 }
 
 function indexingQuestions(classId) {
