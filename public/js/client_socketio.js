@@ -16,6 +16,14 @@ $(function() {
     socket.emit('io-q-submit', qData);
   });
 
+  socket.on('io-q-added', function(data) {
+    console.log("Question added (io-q-added): ", data);
+    renderQuestion(data);
+  });
+
+
+
+
   $ioASubmit.on('click', function(evt) {
     // evt.preventDefault();
     var aData = getAFormData();
@@ -23,10 +31,10 @@ $(function() {
     socket.emit('io-a-submit', aData);
   });
 
-  socket.on('io-q-added', function(data) {
-    console.log("Question added (io-q-added): ", data);
-    renderQuestion(data);
-  });
+
+
+
+
 });
 
 
@@ -53,6 +61,7 @@ function getAFormData() {
   };
 }
 
+
 //rendering question according to each classroom
 var $questionListEl; //<section> of where the question get posted
 var templateQuestion = _.template(`
@@ -66,7 +75,11 @@ var templateQuestion = _.template(`
               <span class="thumb-up-<%= _id %>" id="up-<%= _id %>"><%= upvotes.length %></span>
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" id="up-<%= _id %>"></span>
             </button>
-            <a href="/users/<%= _id %>"><h3><%= title %></h3></a>
+
+
+            <a data-toggle="modal" data-target="#aAddModal" id="a-add-btn"><h3><%= title %></h3></a>
+
+
             <h6> Asked by<a href="/users/<%= author %>"> <%= displayName %></a>, <span class="the-date" data-ts="<%= createdAt %>"></span></h6>
           </div>
           <p><%= body %></p>
