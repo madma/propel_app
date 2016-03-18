@@ -71,7 +71,8 @@ var templateTitle = _.template(`
     `)
 var $askQuestionBtn = $('<button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#qAddModal" id="q-add-btn"><strong>Ask a Question?</strong></button>');
 var templateQuestions = _.template(`
-      <% questions.forEach(function(q) { %>
+      <h4>Signup Code: <%= signUpCode %></h4>
+      <% questions.forEach(function(q,index) { %>
 
         <article id="<%= q._id %>" class="question-article">
           <div class="question-title">
@@ -85,7 +86,7 @@ var templateQuestions = _.template(`
                           <span class="glyphicon glyphicon-thumbs-up button-question" aria-hidden="true" id="up-<%= q._id %>"></span>
                         </button>
 
-                    <a href="/users/<%= q._id %>"><h3 class="button-question"><%= q.title %></h3></a>
+            <a href="#" class="question-expand" id="<%= index %>"><h3 data-toggle="modal" data-target="#qa-render-modal" id="<%= index %>"><%= q.title %></h3></a>
                 </div>
                 <p class="question-body"> Asked by<a href="/users/<%= q.author %>"> <%= q.author.displayName %></a>, <span class="the-date" data-ts="<%= q.createdAt %>"></span></p>
           </div>
@@ -120,6 +121,7 @@ function renderQuestions(classroom){
 
   $questionListEl.html(templateQuestions(sortRoom));
   $('#ask-question').append($askQuestionBtn);
+  viewAns();
 }
 
 function indexingQuestions(classId) {
@@ -147,9 +149,57 @@ function updateTimestampEnglish() {
   });
 }
 
-
 //sort question by upvotes and recent
 $sortSl.change(function(){
   console.log("change")
   renderQuestions(currentRoom);
 });
+
+
+
+
+
+
+
+
+
+function viewAns(){
+
+  var qaTemplate = _.template(`
+<article id="<%= id %>" class="">
+  <div class="question-title">
+  <% if (upvotes.indexOf(userId) === -1) { %>
+    <button type="button" class="btn btn-default btn-sm upvote" id="up-<%= id %>">
+  <% } else { %>
+    <button type="button" class="btn btn-default btn-sm upvote btn-success" id="up-<%= id %>">
+  <% } %>
+      <span class="thumb-up-<%= id %>" id="up-<%= id %>"><%= upvotes.length %></span>
+      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" id="up-<%= id %>"></span>
+    </button>
+    <a href="/users/<%= id %>" ><h3><%= title %></h3></a>
+    <h6> Asked by<a href="/users/<%= author %>"> <%= author.displayName %></a>, <span class="the-date" data-ts="<%= createdAt %>"></span></h6>
+  </div>
+  <p><%= body %></p>
+  <% tags.forEach(function(tag) { %>
+    <span class="label label-default"><%= tag.tag %></span>
+  <% }) %>
+</article>
+
+<% answers.forEach(function(a){ %>
+  <h4 id="<%= a._id %>"><%= a.body %></h4></a>
+  <h6> Answered by<a href="/users/<%= a.author %>"> <%= a.author %></a>, <span class="the-date" data-ts="<%= a.createdAt %>"></span></h6>
+<% }) %>`);
+
+
+  $('.question-expand').click(function(evt){
+    console.log('viewAns click', $(this).attr('id'));
+  var index = $(this).attr('id');
+  var q = currentRoom.questions[index];
+  console.log("123", q);
+  console.log(qaTemplate(q));
+  $('#qa-anchor').html(qaTemplate(q));
+  })
+
+}
+
+

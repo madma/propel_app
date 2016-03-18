@@ -84,8 +84,8 @@ var templateQuestion = _.template(`
             </button>
 
 
-            <a id="a-add-btn" data-toggle="modal" data-target="#aAddModal" data-qid="<%= _id %>"><h3><%= title %></h3></a>
-
+            <a id="a-add-btn" data-toggle="modal" data-target="#aAddModal" data-qid="<%= _id %>"><h5>Click to answer this question!</h5></a>
+            <a href="#" class="question-expand"><h3 id="<%= currentRoom.questions.length %>"><%= title %></h3></a>
 
             <h6> Asked by<a href="/users/<%= author %>"> <%= displayName %></a>, <span class="the-date" data-ts="<%= createdAt %>"></span></h6>
           </div>
