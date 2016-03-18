@@ -11,8 +11,19 @@ var $classroomInfoTemp = _.template(
   </h4>
   `);
 
+
 function renderClasses() {
   $('#classroom-list').empty();
+  console.log("before cm render", classrooms);
+  classrooms = _.filter(classrooms, function(newOrder){
+    return (newOrder.students.indexOf(userId) !== -1 ||
+            newOrder.professionals.indexOf(userId) !== -1 ||
+            newOrder.admins.indexOf(userId) !== -1 ||
+            newOrder.creator._id === userId)
+  });
+
+  console.log("filtered class", classrooms)
+
   classrooms.forEach(function(classroom){
     var $classTemp = $classroomInfoTemp(classroom);
     // console.log($classTemp)
