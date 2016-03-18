@@ -1,12 +1,16 @@
+.upvote {
+  display: inline-block;
+}
+
 #left-column {
   float: left;
-  width: 15%;
+  width: 25%;
   background-color: #f0f0ff;
 }
 
 #right-column {
   float: right;
-  width: 85%;
+  width: 75%;
   padding: 15px;
 }
 
@@ -114,5 +118,17 @@
 #question-list {
   padding: 0;
   list-style-type: none;
+}
+
+#qa-anchor {
+  padding-left: 30px;
+}
+
+.left-filler {
+  width: 25%;
+  height: 100vh;
+  position: fixed;
+  background-color: #f0f0ff;
+  z-index: -99999;
 }
 

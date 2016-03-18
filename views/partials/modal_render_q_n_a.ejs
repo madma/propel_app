@@ -1,31 +1,21 @@
-<div class="modal fade" id="qa-render-modal" tabindex="-1" role="dialog" aria-labelledby="qAddModalLabel">
+<div class="modal fade" id="qa-render-modal" tabindex="-1" role="dialog" aria-labelledby="aAddModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="qa-render-label"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Question and Answers</h4>
-      </div>
-
-      <div id="qa-anchor"></div>
-
-
-
-
+        <h4 class="modal-title" id="aAddModalLabel"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>            Submit An Answer</h4>
+      </div><br>
+          <div id="qa-anchor"></div>
 
       <div class="modal-body">
-        <h5>Type in your answer here</h5>
-        <form action="submit" id="question-form">
-          Title: <input type="text" name="first_name" placeholder="Boil it down!" id="q-form-title"><br>
-          Body: <input type="text" name="last_name" placeholder="Be clear!" id="q-form-body"><br>
-          Tags: <input type="text" name="email" placeholder="Help others find it!" id="q-form-tags"><br>
+        <form action="submit" id="userform">
+          Answer: <input type="text" name="answer" placeholder="Delight us with your intellect!" id="a-form-body"><br>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="io-q-submit-btn" data-dismiss="modal">Ask It!</button>
+        <button type="button" class="btn btn-primary" id="io-a-submit-btn" data-dismiss="modal">Answer It!</button>
       </div>
     </div>
   </div>
 </div>
-
-

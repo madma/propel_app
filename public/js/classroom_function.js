@@ -74,19 +74,19 @@ var templateQuestions = _.template(`
       <h4>Signup Code: <%= signUpCode %></h4>
       <% questions.forEach(function(q,index) { %>
 
-        <article id="<%= q._id %>" class="question-article">
+        <article id="<%= q.id %>" class="question-article">
           <div class="question-title">
                 <div class="row question-row">
                       <% if (q.upvotes.indexOf(userId) === -1) { %>
-                        <button type="button" class="btn btn-default btn-sm upvote button-question" id="up-<%= q._id %>">
+                        <button type="button" class="btn btn-default btn-sm upvote button-question" id="up-<%= q.id %>">
                       <% } else { %>
-                        <button type="button" class="btn btn-default btn-sm upvote btn-success button-question" id="up-<%= q._id %>">
+                        <button type="button" class="btn btn-default btn-sm upvote btn-success button-question" id="up-<%= q.id %>">
                       <% } %>
-                          <span class="thumb-up-<%= q._id %> button-question" id="up-<%= q._id %>"><%= q.upvotes.length %></span>
-                          <span class="glyphicon glyphicon-thumbs-up button-question" aria-hidden="true" id="up-<%= q._id %>"></span>
+                          <span class="thumb-up-<%= q.id %> button-question" id="up-<%= q.id %>"><%= q.upvotes.length %></span>
+                          <span class="glyphicon glyphicon-thumbs-up button-question" aria-hidden="true" id="up-<%= q.id %>"></span>
                         </button>
 
-            <a href="#" class="question-expand" id="<%= index %>"><h3 data-toggle="modal" data-target="#qa-render-modal" id="<%= index %>"><%= q.title %></h3></a>
+            <a href="#" class="question-expand" id="<%= index %>"><h3 class="button-question" data-toggle="modal" data-target="#qa-render-modal" id="<%= index %>"><%= q.title %></h3></a>
                 </div>
                 <p class="question-body"> Asked by<a href="/users/<%= q.author %>"> <%= q.author.displayName %></a>, <span class="the-date" data-ts="<%= q.createdAt %>"></span></p>
           </div>
@@ -111,7 +111,7 @@ function renderQuestions(classroom){
   } else if ($sortSl.val() === "Upvotes") {
     sortRoom.questions = _.orderBy(sortRoom.questions, ['upvotes'], ['desc', 'asc']);
   } else if ($sortSl.val() === "Oldest") {
-    sortRoom.questions = _.orderBy(sortRoom.questions, ['createdAt'], ['asc', 'desc']);
+    sortRoom.questions = _.orderBy(sortRoom.questions, ['createdAt'], ['desc', 'asc']);
   }
   // else if ($sortSl.val() === "Your Questions") {
   //   sortRoom.questions = sortRoom.questions.filter( function(question){
@@ -152,7 +152,7 @@ function updateTimestampEnglish() {
 //sort question by upvotes and recent
 $sortSl.change(function(){
   console.log("change")
-  renderQuestions(currentRoom);
+  indexingQuestions(classId);
 });
 
 
