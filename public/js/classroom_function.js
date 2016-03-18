@@ -79,7 +79,7 @@ var templateQuestions = _.template(`
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" id="up-<%= q._id %>"></span>
             </button>
             <a href="/users/<%= q._id %>"><h3><%= q.title %></h3></a>
-            <h6> Asked by<a href="/users/<%= q.author %>"> <%= q.author.displayName %></a>, <span class="the-date" title="<%= q.createdAt %>"></span></h6>
+            <h6> Asked by<a href="/users/<%= q.author %>"> <%= q.author.displayName %></a>, <span class="the-date" data-ts="<%= q.createdAt %>"></span></h6>
           </div>
           <p><%= q.body %></p>
           <% q.tags.forEach(function(tag) { %>
@@ -115,14 +115,14 @@ function indexingQuestions(classId) {
 }
 
 function startSetInterval() {
+  updateTimestampEnglish();
+  setInterval(updateTimestampEnglish, 20000);
+}
+
+function updateTimestampEnglish() {
+  console.log("... updating timestamps ...");
   $('.the-date').each(function(i,e) {
-    var mome = $(e).attr('title');
-    $(this).text(moment(mome).fromNow());
+    var ts = $(e).data('ts');
+    $(this).text(moment(ts).fromNow());
   });
-  setInterval(function() {
-    $('.the-date').each(function(i,e) {
-      var mome = $(e).attr('title');
-      $(this).text(moment(mome).fromNow());
-    });
-  }, 1000)
 }

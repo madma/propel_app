@@ -74,7 +74,7 @@ var templateQuestion = _.template(`
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" id="up-<%= _id %>"></span>
             </button>
             <a href="/users/<%= _id %>"><h3><%= title %></h3></a>
-            <h6> Asked by<a href="/users/<%= author %>"> <%= displayName %>, <%= createdAt %></h6></a>
+            <h6> Asked by<a href="/users/<%= author %>"> <%= author.displayName %></a>, <span class="the-date" data-ts="<%= createdAt %>"></span></h6>
           </div>
           <p><%= body %></p>
           <% tags.forEach(function(tag) { %>
@@ -89,7 +89,7 @@ var templateQuestion = _.template(`
 
 //using put info in template and append to page
 function renderQuestion(question){
-      $questionListEl    = $('#question-list');
-      $questionListEl.append(templateQuestion(question));
-
+  $questionListEl    = $('#question-list');
+  $questionListEl.append(templateQuestion(question));
+  updateTimestampEnglish();
 }
