@@ -1,34 +1,35 @@
-# propel_app
+# Propel!
+###Learning, boosted.
 
-A README.md file with:
-
----
-
-Technologies Utilized
+##Technologies Utilized
 
 A variety of languages, frameworks, libraries, and other technologies were used to create Propel. 
 
-HTML: Used to create page elements
+* HTML: Used to create page elements
 
-CSS: Used to style page elements
-    Twitter Bootstrap: a framework for creating responsive and organized page layouts
+* CSS: Used to style page elements
 
-Javascript: Used for DOM manipulation, authentication, routing, controlling, and most dynamic page actions, among other functions
-    jQuery: framework useful for easing the task of manipulating the DOM
-    SocketIO: framework that enables real-time rendering for multiple viewers
-    Ajax: asynchronous real-time rendering, among other capabilities
-    MEN Stack:
-        MongoDB: non-relational database system on which all user and classroom data is stored and organized. Mongoose was used as an intermediary for manipulating databases
-        Express.js: Server framework for node.js
-        Node.js: Runtime environment for the application
-    
-In addition, LinkedIn's OAuth was used to sign up and authenticate users of Propel.
+  Twitter Bootstrap: a framework for creating responsive and organized page layouts
+* Javascript: Used for DOM manipulation, authentication, routing, controlling, and most dynamic page actions, among other functions
 
-Other Technologies: Sublime Text (composition), Git (version control), Bootply (views testing), Heroku (deployment), among others.
+  jQuery: framework useful for easing the task of manipulating the DOM
 
--
+  SocketIO: framework that enables real-time rendering for multiple viewers
 
-General Approach for Assembly
+  Ajax: asynchronous real-time rendering, among other capabilities
+
+  MEN Stack:
+
+   MongoDB: non-relational database system on which all user and classroom data is stored and organized. Mongoose was used as an intermediary for manipulating databases
+
+   Express.js: Server framework for node.js
+
+   Node.js: Runtime environment for the application   
+
+* In addition, LinkedIn's OAuth was used to sign up and authenticate users of Propel.
+* Other Technologies: Sublime Text (composition), Git (version control), Bootply (views testing), Heroku (deployment), among others.
+
+##General Approach for Assembly
 
 Our team took advantage of the AGILE approach to development. AGILE encourages developers to envision project features in terms of the needs of site users. To this end, we generated numerous "user stories": what users would want to do or see on the site, and why.
 
@@ -38,21 +39,14 @@ Development then proceeded along two parallel paths: front-end web design beside
 
 Gradually these two halves came together to form a site we very much hope you enjoy.
 
--
-
-Installation Instructions
+##Installation Instructions
 
 Don't use IE.
 
---
-
-Planning Documents and Business Information
+##Planning Documents and Business Information
 
 [Links to your planning docs, including data models, wireframes, and your presentation deck.]
 
--
-
-Unsolved Problems and Features to Be Added...
+##Unsolved Problems and Features to Be Added...
 
 ... are to be determined is the end of that sentence.
-Descriptions of any unsolved problems or major hurdles your team had to overcome.
