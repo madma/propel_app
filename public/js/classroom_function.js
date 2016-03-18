@@ -53,7 +53,7 @@ $( document ).ready( function() {
 var $questionListEl; //<section> of where the question get posted
 var templateTitle = _.template(`
     <div class="class-title">
-      <h5><strong><%= name %></strong> (Sign Up Code: <%= signUpCode %>)</h5>
+      <h3 class="class-title-h3"><strong><%= name %></strong> (Sign Up Code: <%= signUpCode %>)</h3>
     </div>
     `)
 var $askQuestionBtn = $('<button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#qAddModal" id="q-add-btn"><strong>Ask a Question?</strong></button>');
@@ -84,7 +84,7 @@ var templateQuestions = _.template(`
 
 //using put info in template and append to page
 function renderQuestions(classroom){
-  $titleEl           = $('#questionpanetop');
+  $titleEl           = $('#classroom-header');
   $titleEl.html(templateTitle(classroom));
   $questionListEl    = $('#question-list');
   $questionListEl.html(templateQuestions(classroom));
