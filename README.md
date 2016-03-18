@@ -1,6 +1,17 @@
 # Propel!
 ###Learning, boosted.
 
+[Check out Propel's Trello Board](https://trello.com/b/vsHXqFEq/wdi-project-3-propel)
+
+[Also, check out our Pitch Deck:]
+(https://drive.google.com/file/d/0B-gPQrW54-ySSXk1NGZ2NGYybHM/view?usp=sharing)
+
+Propel! is a real-time Question and Answer app for classrooms. Speaking out in class is tough: the pace of a lesson might be too fast for pausing to ask questions, or a student simply might not feel comfortable.
+
+Propel! changes that by ofering a forum for students to speak up, be heard, and have their questions answered. Instructors are better able to guage classroom learning live by seeing exactly how many students are having trouble grasping specific concepts. Students are encouraged to gain reputation points by posting insightful answers, and instructors can tailor lessons precisely toward students’ needs. 
+
+Propel!’s LinkedIn integration also gives instructors the option to connect their professional networks with their classrooms, opening the class dialog to outside experts and helping students make industry connections.
+
 ##Technologies Utilized
 
 A variety of languages, frameworks, libraries, and other technologies were used to create Propel. 
@@ -27,7 +38,7 @@ A variety of languages, frameworks, libraries, and other technologies were used 
    Node.js: Runtime environment for the application   
 
 * In addition, LinkedIn's OAuth was used to sign up and authenticate users of Propel.
-* Other Technologies: Sublime Text (composition), Git (version control), Bootply (views testing), Heroku (deployment), among others.
+* Other Technologies: Sublime Text (composition), Git (version control), Bootply (views testing), Heroku (deployment), Lodash (text parsing), and others.
 
 ##General Approach for Assembly
 
@@ -35,26 +46,49 @@ Our team took advantage of the AGILE approach to development. AGILE encourages d
 
 > As a user, I want to receive answers to my questions from my fellow students, my instructors and professionals working in the industry.
 
+We then made diagrams of our data model (ERD):
+
+![alt text](http://i.imgur.com/16wq2gY.png)
+
 We then generated static visuals to begin realizing our user stories. These included wireframes, or diagrams, of site views. 
 
-[Imgur](http://i.imgur.com/9HfYKVH.jpg?1)
+![alt text](http://i.imgur.com/9HfYKVH.jpg?1)
+
+![alt text](http://i.imgur.com/07rP4Mg.jpg)
 
 Concurrently, we developed a "pitch deck" that expressed our developing vision for Propel in terms of a business proposition to be pitched to investors.
 
-
-
 Development then proceeded along two parallel paths: front-end web design beside back-end functionality. Once front-end views were templated, they were converted into embedded javascript files, a requirement for making our website a dynamic entity. At the same time, a great deal of applied logic went into creating seed data, routes, controller actions, and other computational structures.
 
-Gradually these two halves came together to form a site we very much hope you enjoy.
+Gradually these two halves came together to form a site we hope you enjoy.
 
 ##Installation Instructions
 
-Don't use IE.
+Propel! runs in all modern browsers without the need for special software.
+
+We recommend that you don't use IE.
 
 ##Planning Documents and Business Information
 
 [Links to your planning docs, including data models, wireframes, and your presentation deck.]
 
-##Unsolved Problems and Features to Be Added...
+##Unsolved Problems and Features to Be Added
 
-... are to be determined is the end of that sentence.
+Propel will be expanded in the future with the following cool features:
+
+* Authentication through Google as an additional option to LinkedIn
+* Instructors will be able to upload lesson outlines so that students will be able to interact with their classes with greater levels of precision
+* Although classrooms in Propel! are currently private, features will be added in the future to allow for public Q&A
+
+##Team
+Contributing to Propel! are:
+
+Keith To
+
+Jerry Lee
+
+Tony Estese
+
+Michael Duran
+
+James Coslett
