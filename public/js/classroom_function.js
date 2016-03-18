@@ -20,10 +20,11 @@ function renderClasses() {
   $('#classroom-list').empty();
   console.log("before cm render", classrooms);
   classrooms = _.filter(classrooms, function(newOrder){
+    console.log(newOrder);
     return (newOrder.students.indexOf(userId) !== -1 ||
             newOrder.professionals.indexOf(userId) !== -1 ||
             newOrder.admins.indexOf(userId) !== -1 ||
-            newOrder.creator._id === userId)
+            newOrder.creator === userId );
   });
 
   console.log("filtered class", classrooms)
@@ -112,12 +113,11 @@ function renderQuestions(classroom){
     sortRoom.questions = _.orderBy(sortRoom.questions, ['upvotes'], ['desc', 'asc']);
   } else if ($sortSl.val() === "Oldest") {
     sortRoom.questions = _.orderBy(sortRoom.questions, ['createdAt'], ['desc', 'asc']);
+  } else if ($sortSl.val() === "Your Questions") {
+    sortRoom.questions = sortRoom.questions.filter( function(question){
+      return question == userId
+    });
   }
-  // else if ($sortSl.val() === "Your Questions") {
-  //   sortRoom.questions = sortRoom.questions.filter( function(question){
-  //     return question == userId
-  //   });
-  // }
 
   $questionListEl.html(templateQuestions(sortRoom));
   $('#ask-question').append($askQuestionBtn);

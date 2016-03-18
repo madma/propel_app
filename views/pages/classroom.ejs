@@ -58,7 +58,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="add-create">
         <div data-toggle="modal" data-target="#addClassModal" class="class-buttons" id="add-class-button">Add</div>
       <$ if (user.type === "student") { $>
         <div data-toggle="modal" data-target="#createClassModal" class="class-buttons" id="create-class-button">Create</div>
@@ -72,8 +72,9 @@
       <p class="inline">Sort By: </p>
         <select class="drop-down-sort inline" name="sort" id="sort" onchange="">
           <option value="Newest" selected="selected">Newest</option>
-          <option value="Upvotes">Upvotes</option>
           <option value="Oldest">Oldest</option>
+          <option value="Upvotes">Upvotes</option>
+          <option value="Your Questions">Your Questions</option>
         </select>
     </div>
 

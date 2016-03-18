@@ -119,6 +119,7 @@ function classroomCreate(req, res, next) {
         admins      : [req.body.creator],
         description : req.body.description,
         signUpCode  : code,
+        creator     : req.user.id
         // classroom.admins.push(req.body.admins);
         // classroom.professionals   = req.body.professionals;
       });
