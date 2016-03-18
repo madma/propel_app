@@ -1,5 +1,6 @@
 var io = require('../../io');
 var Classroom = require('../../models/classroom');
+var User      = require('../../models/user');
 
 
 function ioFormatQData(data) {
@@ -22,14 +23,24 @@ function createField(field, data, ioServer, serverEmitMessage) {
       var qObject = ioFormatQData(data);
       Classroom.findById(data.qClassroomId).exec()
       .then(function(classroom) {
-        classroom.questions.push(qObject);
-        console.log("PUSHED NEW QUESTION FROM SOCKET");
-        return classroom.save();
+        var questionSubDoc = classroom.questions.create(qObject);
+        classroom.questions.push(questionSubDoc);
+        return classroom.save().then(function() { return questionSubDoc; });
       })
-      .then(function(classroom) {
-        console.log(classroom); // already updated
-        ioServer.emit(serverEmitMessage, data);
-        ioServer.emit('io-q-added', classroom.questions[classroom.questions.length - 1]);
+      .then(function(createdItem) {
+        return User.findById(createdItem.author).then(function(author) {
+          // turn the cretedItem into a "plain" JS object
+          var createdItemObj = createdItem.toObject();
+          // add the author's displayName
+          createdItemObj.displayName = author.displayName();
+
+          return createdItemObj;
+        });
+      })
+      .then(function(createdItemObj) {
+        // emit
+        console.log("PUSHING NEW QUESTION FROM SOCKET", createdItemObj);
+        ioServer.emit(serverEmitMessage, createdItemObj);
       })
       .catch(function(err) {
         console.log("Error:", err);

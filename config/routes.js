@@ -10,14 +10,9 @@ var pagesController = require('../controllers/pages');
 router.get('/', function(req, res) {
   res.redirect('/welcome');
 });
-router.get('/welcome', pagesController.welcome);
-router.get('/team',    pagesController.team);
-router.get('/test',    pagesController.test);
-router.get('/first_time_login',    pagesController.loginTest);
-router.get('/edituser',    pagesController.edituser);
-router.get('/classroom', pagesController.classroom);
-
-router.get('/test', pagesController.test);
+router.get('/welcome',   pagesController.welcome);
+router.get('/team',      pagesController.team);
+router.get('/classroom', authenticateUser, pagesController.classroom);
 
 // AUTH ROUTES (SIGN IN, LOG IN, LOG OUT) ******************************
 router.get('/auth/linkedin', passport.authenticate('linkedin',
@@ -35,5 +30,15 @@ router.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/');
 });
+
+function authenticateUser(req, res, next) {
+  console.log("Authenticating user...");
+
+  if (req.isAuthenticated()) {
+    next();
+  } else {
+    res.redirect("/");
+  }
+}
 
 module.exports = router;

@@ -1,10 +1,10 @@
 <script>
-  var newUser = '';
-  var userId = '';
+  var newUser     = '';
+  var userId      = '';
   var displayName = '';
   <$ if (user) { $>
-    newUser = <$= user.newUser $>;
-    userId = '<$= user.id $>';
+    newUser     = <$= user.newUser $>;
+    userId      = '<$= user.id $>';
     displayName = '<$= user.displayName() $>';
   <$ } $>
 </script>
@@ -17,5 +17,3 @@
 <script src='/js/spike_edit_user.js'></script>
 <script src='/js/spike_first_time_login.js'></script>
 <script src='/js/spike_create_question.js'></script>
-
-

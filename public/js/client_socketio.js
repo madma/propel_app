@@ -12,38 +12,31 @@ $(function() {
   $ioQSubmit.on('click', function(evt) {
     // evt.preventDefault();
     var qData = getQFormData();
-    console.log(qData);
+    // console.log(qData);
     socket.emit('io-q-submit', qData);
-  });
-
-  socket.on('io-q-added', function(data) {
-    console.log("THE QUESTION WAS ADDED!!! QDATA: ", data);
-    // render question data and append
-    renderQuestion(data);
   });
 
   $ioASubmit.on('click', function(evt) {
     // evt.preventDefault();
     var aData = getAFormData();
-    console.log(aData);
+    // console.log(aData);
     socket.emit('io-a-submit', aData);
   });
 
   socket.on('io-q-added', function(data) {
-    console.log("THE QUESTION WAS ADDED!!! QDATA: ", data);
-
+    console.log("Question added (io-q-added): ", data);
+    renderQuestion(data);
   });
-
 });
 
 
 function getQFormData() {
   return {
       qClassroomId: classId,
-      qAuthorId: userId,
-      qTitle:    $('#q-form-title').val(),
-      qBody:     $('#q-form-body').val(),
-      qTags:     makeTagObjArray($('#q-form-tags').val(), userId)
+      qAuthorId:    userId,
+      qTitle:       $('#q-form-title').val(),
+      qBody:        $('#q-form-body').val(),
+      qTags:        makeTagObjArray($('#q-form-tags').val(), userId)
     };
 }
 
@@ -53,11 +46,11 @@ function makeTagObjArray(tagsString, addedBy) {
 
 function getAFormData() {
   return {
-      //aClassroomId:
-      //aQuestionId:
-      aAuthorId: userId,
-      aBody:     $('#a-form-body').val()
-    };
+    //aClassroomId:
+    //aQuestionId:
+    aAuthorId: userId,
+    aBody:     $('#a-form-body').val()
+  };
 }
 
 //rendering question according to each classroom
@@ -74,7 +67,7 @@ var templateQuestion = _.template(`
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" id="up-<%= _id %>"></span>
             </button>
             <a href="/users/<%= _id %>"><h3><%= title %></h3></a>
-            <h6> Asked by<a href="/users/<%= author %>"> <%= displayName %>, <%= createdAt %></h6></a>
+            <h6> Asked by<a href="/users/<%= author %>"> <%= displayName %></a>, <span class="the-date" data-ts="<%= createdAt %>"></span></h6>
           </div>
           <p><%= body %></p>
           <% tags.forEach(function(tag) { %>
@@ -89,7 +82,8 @@ var templateQuestion = _.template(`
 
 //using put info in template and append to page
 function renderQuestion(question){
-      $questionListEl    = $('#question-list');
-      $questionListEl.append(templateQuestion(question));
-
+  console.log("Question to render:", question);
+  $questionListEl    = $('#question-list');
+  $questionListEl.append(templateQuestion(question));
+  updateTimestampEnglish();
 }
