@@ -1,31 +1,64 @@
-body {
-  padding-top: 60px;
+
+#body-override, #html-override {
+  padding-top: 50px;
+  background-color: #F8F8FF;
+  height: 100%;
 }
 
 .navigation {
-  background-color: #e3e3e3;
+  background-color: #cfcfe5;
 }
 
-.col-md-9{
-  padding:1% 5% 1% 5%;
-  overflow: auto;
-  position:absolute;
-  }
-
-.col-md-3 {
-  background-color:#FAFAFA;
+.col-md-10{
   padding: 1% 5% 1% 5%;
   overflow: auto;
-  position:absolute;
-  }
+  position: absolute;
+}
+
+.col-md-2 {
+  padding: 1% 5% 1% 5%;
+  overflow: auto;
+  position: absolute;
+}
+
+.class-buttons {
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+}
+
+.class-buttons:hover {
+  background-color: #cfcfe5;
+  cursor: pointer;
+}
+
+#class-column {
+  background-color: #f0f0ff;
+  height: 100%;
+  padding: 0 15px;
+}
+
+.class-list {
+  padding: 5px 10px;
+}
+
+.class-list:hover {
+  background-color: #cfcfe5;
+  cursor: pointer;
+}
+
+#classroom-list-div {
+  padding: 0;
+  overflow: auto;
+}
 
 #questionpanetop{
-  background-color:#fafafa;
+  background-color: #F8F8FF;
   padding: 1%;
 }
 
 #tocpanetop{
-  background-color:#e3e3e3;
+  background-color: #E6E6FF;
 }
 
 #selected{
@@ -40,14 +73,24 @@ body {
   float: right;
   color: white;
   background-color: black;
+  cursor: pointer;
 }
 
-#agendatitle{
-
+.question-row{
+  padding-left: 15px;
 }
 
-#questiontitle{
-  text-align:right;
+#question-section {
+  background-color: #F8F8FF;
+}
+
+.question-body {
+  font-size: 10px;
+}
+
+.question-article{
+  border-bottom: 1px solid #E9E9E9;
+  padding: 10px 0;
 }
 
 #questiontext{
@@ -57,6 +100,17 @@ body {
 #classroom-list {
   padding: 0;
   list-style-type: none;
+}
+
+.button-question{
+  display: inline;
+}
+.inline {
+  display: inline;
+}
+
+#create-class-button, #add-class-button{
+  padding: 10px;
 }
 
 #question-list {

@@ -9,7 +9,7 @@
   <!--bootstrap-->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
-<body>
+<body id="body-override">
   <$- include('../partials/modal_edit_profile') $>
   <$- include('../partials/modal_add_class') $>
   <$- include('../partials/modal_add_question') $>
@@ -22,11 +22,14 @@
 
       <div id="navbar3" class="navbar-collapse collapse" id="wholedangnavbar">
         <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Welcome <$= user.firstName $></a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
             <ul class="dropdown-menu">
               <li><a data-toggle="modal" data-target="#addClassModal">Add Classroom</a></li>
+              <$ if (user.type === "student") { $>
               <li><a data-toggle="modal" data-target="#createClassModal">Create New Classroom</a></li>
+              <$ } $>
               <li role="separator" class="divider"></li>
               <li><a data-toggle="modal" data-target="#myModal">Edit Profile</a></li>
             </ul>
@@ -39,24 +42,29 @@
     <!--/.container-fluid -->
   </nav>
 
-  <div class="container-fluid">
+  <div class="container-fluid" id="question-section">
 
     <div class="row">
-      <div class="col-md-3" id="tocpanetop">
-      <button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#addClassModal" id="add-class-button">Add Class</button>
-      <$ if (user.type === "instructor") { $>
-        <button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#createClassModal" id="create-class-button">Create Class</button>
-      <$ } $>
+      <div class="col-md-2" id="tocpanetop">
+        <h5><strong>Classrooms</strong></h5>
       </div>
-      <div class="col-md-9" id="questionpanetop">
+      <div class="col-md-8" id="questionpanetop">
         <h5><strong>Class Name</strong></h5>
+      </div>
+      <div class="col-md-2" id="right-column-top">
+        <p class="inline">Sort By: </p>
+          <select class="drop-down-sort inline" name="sort" id="sort" onchange="">
+            <option value="Newest" selected="selected">Newest</option>
+            <option value="Upvotes">Upvotes</option>
+            <option value="Oldest">Oldest</option>
+          </select>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-2" id="class-column">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12" id="classroom-list-div">
             <ul id="classroom-list">
               <!--      <h4 id="<%= _id %>>
                           <%= name %>
@@ -69,10 +77,20 @@
             </ul>
           </div>
         </div>
+        <div class="row bottom-row">
+          <div class="col-md-6 class-buttons">
+            <div data-toggle="modal" data-target="#addClassModal" id="add-class-button">Add</div>
+          </div>
+          <div class="col-md-6 class-buttons">
+          <$ if (user.type === "student") { $>
+            <div data-toggle="modal" data-target="#createClassModal" id="create-class-button">Create</div>
+          <$ } $>
+          </div>
+        </div>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-10">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12 container">
             <ul id="question-list">
             </ul>
 
@@ -99,7 +117,6 @@
 
           </div>
           </div>
-        </div>
       </div> <!-- Main pane div close -->
     </div>
   </div> <!-- Container div close -->
