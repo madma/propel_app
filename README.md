@@ -12,6 +12,16 @@ Propel! changes that by ofering a forum for students to speak up, be heard, and 
 
 Propel!’s LinkedIn integration also gives instructors the option to connect their professional networks with their classrooms, opening the class dialog to outside experts and helping students make industry connections.
 
+##How To Use Propel! to Boost Your Classroom Experience
+
+Propel! features a landing page/home page that displays and links to product information, information about the Propel! project, and most importantly invites users to sign in with LinkedIn.
+
+Once signed in, users are brought to the Propel! classroom, where they are prompted to add personal information. Users can then click a button to join a class their instructor or organization administrator has provided them a sign in code for. 
+
+Once signed in, users can click on any class they are a member of, click a button to ask a question (complete with question title and body). After submitting the question, anybody who is a member of the class may answer the question and comment on the answers. Users may upvote quality questions and answers to lend popularity to those questions and answers.
+
+The effect is to generate a running FAQ of student questions that makes learning more efficient, and fun!
+
 ##Technologies Utilized
 
 A variety of languages, frameworks, libraries, and other technologies were used to create Propel. 
