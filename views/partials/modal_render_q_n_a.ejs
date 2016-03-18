@@ -1,0 +1,57 @@
+<div class="modal fade" id="qa-render-modal" tabindex="-1" role="dialog" aria-labelledby="qAddModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="qa-render-label"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Question and Answers</h4>
+      </div>
+
+      <div id="qa-anchor"></div>
+
+
+
+
+
+      <div class="modal-body">
+        <h5>Type in your answer here</h5>
+        <form action="submit" id="question-form">
+          Title: <input type="text" name="first_name" placeholder="Boil it down!" id="q-form-title"><br>
+          Body: <input type="text" name="last_name" placeholder="Be clear!" id="q-form-body"><br>
+          Tags: <input type="text" name="email" placeholder="Help others find it!" id="q-form-tags"><br>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="io-q-submit-btn" data-dismiss="modal">Ask It!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- <article id="<%= q._id %>" class="">
+  <div class="question-title">
+  <% if (q.upvotes.indexOf(userId) === -1) { %>
+    <button type="button" class="btn btn-default btn-sm upvote" id="up-<%= q._id %>">
+  <% } else { %>
+    <button type="button" class="btn btn-default btn-sm upvote btn-success" id="up-<%= q._id %>">
+  <% } %>
+      <span class="thumb-up-<%= q._id %>" id="up-<%= q._id %>"><%= q.upvotes.length %></span>
+      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" id="up-<%= q._id %>"></span>
+    </button>
+    <a href="/users/<%= q._id %>" id="<%= index %>"><h3><%= q.title %></h3></a>
+    <h6> Asked by<a href="/users/<%= q.author %>"> <%= q.author.displayName %></a>, <span class="the-date" data-ts="<%= q.createdAt %>"></span></h6>
+  </div>
+  <p><%= q.body %></p>
+  <% q.tags.forEach(function(tag) { %>
+    <span class="label label-default"><%= tag.tag %></span>
+  <% }) %>
+</article>
+
+<% q.answers.forEach(function(a){ %>
+  <h3 id="<%= a._id %>"><%= a.author %></h3></a>
+  <h6> Answered by<a href="/users/<%= a.author %>"> <%= a.author.displayName %></a>, <span class="the-date" data-ts="<%= a.createdAt %>"></span></h6>
+<% }) %> -->

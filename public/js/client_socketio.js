@@ -66,7 +66,7 @@ var templateQuestion = _.template(`
               <span class="thumb-up-<%= _id %>" id="up-<%= _id %>"><%= upvotes.length %></span>
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" id="up-<%= _id %>"></span>
             </button>
-            <a href="/users/<%= _id %>"><h3><%= title %></h3></a>
+            <a href="#" class="question-expand"><h3 id="<%= currentRoom.questions.length %>"><%= title %></h3></a>
             <h6> Asked by<a href="/users/<%= author %>"> <%= displayName %></a>, <span class="the-date" data-ts="<%= createdAt %>"></span></h6>
           </div>
           <p><%= body %></p>
