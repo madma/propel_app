@@ -23,9 +23,23 @@ h6 {
     font-size: 14px;
 }
 
+#container{
+  width: auto;
+  background-color: #222222;
+}
+
+#introrow{
+margin-right:0px;
+margin-left:0px;
+}
+
 .lead {
     font-size: 18px;
     font-weight: 400;
+}
+
+#contentsection{
+  padding:30px;
 }
 
 .intro-header {
@@ -33,7 +47,7 @@ h6 {
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-    background: url(http://ppmechanical.com/wp-content/uploads/2014/11/LAC-USC-sunrise.jpg) no-repeat center center;
+    background: url("../stashes/propel_background_2.jpg") no-repeat center center;
     background-size: cover;
 }
 
@@ -83,6 +97,9 @@ h6 {
     }
 }
 
+#greydivider{
+  height: 50px;
+}
 .network-name {
     text-transform: uppercase;
     font-size: 14px;
@@ -91,7 +108,8 @@ h6 {
 }
 
 .content-section-a {
-    padding: 50px 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
     background-color: #f8f8f8;
 }
 
@@ -167,10 +185,26 @@ p.copyright {
     margin: 15px 0 0;
 }
 
+#handraise{
+  padding-left: 30px;
+}
 
 /*below is custom css*/
-
+#propellogo{
+}
 
 #signup {
   color:black;
+}
+
+#footer{
+  text-align:center;
+}
+
+#lock{
+margin-right: 25px;
+}
+
+#introtitle{
+  text-align:center;
 }

@@ -5,14 +5,14 @@
 </head>
 <body>
   <$- include('../partials/header', {page: "welcome"}) $>
-  <div class="container">
+  <div class="container" id="container">
     <div class="intro-header">
-        <div class="row">
+        <div class="row" id="introrow">
             <div class="col-lg-12">
                 <div class="intro-message">
                     <h1>Propel</h1>
-                    <h3>For When Your Future Needs a Boost!</h3>
-                    <p id="signup">Sign up with LinkedIn:</p>
+                    <h3>Learning. Boosted.</h3>
+                    <br>
                     <ul class="list-inline intro-social-buttons">
                       <li>
                         <a href="/auth/linkedin" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Get Started with LinkedIn</span></a>
@@ -22,40 +22,35 @@
             </div>
         </div>
     </div>
+    <div class="row" id="greydivider">
+
+    </div>
     <!-- /.intro-header -->
 
-    <!-- /.content-section-b -->
+
     <div class="content-section-a">
       <div class="row">
-          <div class="col-lg-5 col-sm-6">
-              <hr class="section-heading-spacer">
-              <div class="clearfix"></div>
-              <h2 class="section-heading">Google Web Fonts and<br>Font Awesome Icons</h2>
-              <p class="lead">This template features the 'Lato' font, part of the <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
+        <div class="col-md-7"><img src="http://i.imgur.com/wnImfc4.jpg" class="img-responsive" id="handraise">
+        </div>
+          <div class="col-md-5" id="contentsection">
+            <h1 class="section-heading" id="introtitle"><b>Real-Time Classroom Q&A</b></h1>
+            <h3 class="lead">Speaking out in class is tough. That's why we created Propel! with students and instructors in mind</h3>
+            <h3 class="lead"></h3>
           </div>
-          <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-              <!-- <img class="img-responsive" src="img/phones.png" alt=""> -->
-          </div>
+        </div>
       </div>
-    </div>
-    <!-- /.content-section-a -->
+
 
     <a  name="contact"></a>
     <div class="banner">
       <div class="row">
           <div class="col-lg-6">
-              <h2>Connect to Start Bootstrap:</h2>
+              <h2 style="text-align: right;"><span class="glyphicon glyphicon-lock" id="lock" aria-hidden="true"></span>Secure Sign-in with LinkedIn:</h2>
           </div>
           <div class="col-lg-6">
               <ul class="list-inline banner-social-buttons">
                   <li>
-                      <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                  </li>
-                  <li>
-                      <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                  </li>
-                  <li>
-                      <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                      <a href="/auth/linkedin" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Get Started with LinkedIn</span></a>
                   </li>
               </ul>
           </div>
@@ -65,26 +60,18 @@
 
     <!-- Footer -->
     <footer>
-      <div class="row">
+      <div class="row" id="footer">
           <div class="col-lg-12">
               <ul class="list-inline">
                   <li>
-                      <a href="#">Home</a>
+                      <a href="#about">Team</a>
                   </li>
                   <li class="footer-menu-divider">&sdot;</li>
                   <li>
-                      <a href="#about">About</a>
-                  </li>
-                  <li class="footer-menu-divider">&sdot;</li>
-                  <li>
-                      <a href="#services">Services</a>
-                  </li>
-                  <li class="footer-menu-divider">&sdot;</li>
-                  <li>
-                      <a href="#contact">Contact</a>
+                      <a href="#services">Sign Up</a>
                   </li>
               </ul>
-              <p class="copyright text-muted small">Copyright &copy; Your Company 2014. All Rights Reserved</p>
+              <p class="copyright text-muted small">Propel! 2016. All Rights Reserved</p>
           </div>
       </div>
     </footer>
