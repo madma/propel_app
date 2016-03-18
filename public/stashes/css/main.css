@@ -11,3 +11,16 @@ body {
 }
 
 a { color: #00B7FF; }
+
+#teamtitle{
+  text-align: center;
+}
+
+#teamimages{
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.row{
+  text-align: center;
+}
