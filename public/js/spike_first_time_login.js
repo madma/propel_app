@@ -4,7 +4,7 @@ function createClassroom(classroom) {
   console.log("CLICKKKKKKK", classroom);
     $.ajax({
     type: 'POST',
-    url: 'http://localhost:3000/api/classroom/',
+    url: '/api/classroom/',
     data: classroom
   }).then(function(classroom){
     // console.log(user);

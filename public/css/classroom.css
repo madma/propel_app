@@ -4,7 +4,7 @@
 
 #left-column {
   float: left;
-  width: 25%;
+  width: 20%;
   background-color: #f0f0ff;
 }
 
@@ -125,10 +125,15 @@
 }
 
 .left-filler {
-  width: 25%;
+  width: 20%;
   height: 100vh;
   position: fixed;
   background-color: #f0f0ff;
   z-index: -99999;
 }
 
+.add-create {
+  position: fixed;
+  left: 7.5%;
+  bottom: 0;
+}
