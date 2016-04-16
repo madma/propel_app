@@ -6,6 +6,8 @@ body,
 html {
     width: 100%;
     height: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 body,
@@ -29,35 +31,56 @@ h6 {
 }
 
 .intro-header {
-    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    margin-top: 75px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-    background: url(http://ppmechanical.com/wp-content/uploads/2014/11/LAC-USC-sunrise.jpg) no-repeat center center;
+    background-color: rgba(255,255,255,0.3);
+    background: url("http://greatist.com/sites/default/files/styles/big_share/public/College%20Campus__.jpg?itok=-WOqTbBE") no-repeat center center;
     background-size: cover;
-}
-
-.intro-message {
+    width: 100%;
+    height: 100%;
     position: relative;
-    padding-top: 20%;
-    padding-bottom: 20%;
+    box-shadow: inset 0 -255px 680px -10pc rgba(0,0,0,.4),inset 0 153px 136px -85px rgba(0,0,0,.5);
 }
 
-.intro-message > h1 {
-    margin: 0;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-    font-size: 5em;
+.intro-header h1 {
+  padding-top: 170px;
+  font-size: 100px;
 }
 
-.intro-divider {
-    width: 400px;
-    border-top: 1px solid #f8f8f8;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+.intro-header h3 {
+  font-size: 50px;
 }
 
-.intro-message > h3 {
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+.intro-social-buttons {
+  margin-top: 40px;
 }
+
+.intro-header::after {
+  background: black;
+}
+
+
+footer {
+  background-color: black;
+}
+
+footer > ul {
+  padding: 50px 0 50px 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.copyrights {
+  text-align: center;
+}
+
+.copyrights > p {
+  margin: 0;
+  padding-bottom: 40px;
+}
+
 
 @media(max-width:767px) {
     .intro-message {
@@ -81,96 +104,4 @@ h6 {
     .intro-divider {
         width: 100%;
     }
-}
-
-.network-name {
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 2px;
-}
-
-.content-section-a {
-    padding: 50px 0;
-    background-color: #f8f8f8;
-}
-
-.content-section-b {
-    padding: 50px 0;
-    border-top: 1px solid #e7e7e7;
-    border-bottom: 1px solid #e7e7e7;
-}
-
-.section-heading {
-    margin-bottom: 30px;
-}
-
-.section-heading-spacer {
-    float: left;
-    width: 200px;
-    border-top: 3px solid #e7e7e7;
-}
-
-.banner {
-    padding: 100px 0;
-    color: #f8f8f8;
-    /*background: url(../img/banner-bg.jpg) no-repeat center center;*/
-    background-size: cover;
-}
-
-.banner h2 {
-    margin: 0;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-    font-size: 3em;
-}
-
-.banner ul {
-    margin-bottom: 0;
-}
-
-.banner-social-buttons {
-    float: right;
-    margin-top: 0;
-}
-
-@media(max-width:1199px) {
-    ul.banner-social-buttons {
-        float: left;
-        margin-top: 15px;
-    }
-}
-
-@media(max-width:767px) {
-    .banner h2 {
-        margin: 0;
-        text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-        font-size: 3em;
-    }
-
-    ul.banner-social-buttons > li {
-        display: block;
-        margin-bottom: 20px;
-        padding: 0;
-    }
-
-    ul.banner-social-buttons > li:last-child {
-        margin-bottom: 0;
-    }
-}
-
-footer {
-    padding: 50px 0;
-    background-color: #f8f8f8;
-}
-
-p.copyright {
-    margin: 15px 0 0;
-}
-
-
-/*below is custom css*/
-
-
-#signup {
-  color:black;
 }
