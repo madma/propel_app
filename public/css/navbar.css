@@ -21,6 +21,7 @@
 }
 
 .nav {
+  margin-top: 5px;
   margin-right: -130px;
 }
 
@@ -35,4 +36,9 @@
 
 .bright {
   color: white;
+}
+
+.navbar {
+ background-color: rgba(0,0,0,0.6);
+ border: none;
 }
