@@ -5,21 +5,21 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit Profile</h4>
         </div>
-        <div class="modal-body form-control">
+        <div class="modal-body form-group">
           <form action="submit" id="userform">
             <label for="edit-fn">First Name:</label>
-            <input type="text" name="first_name" value="<$= user.firstName $>" class="form-group" id="edit-fn"><br>
+            <input type="text" name="first_name" value="<$= user.firstName $>" class="form-control" id="edit-fn"><br>
             <label for="edit-ln">Last Name:</label>
-            <input type="text" name="last_name" value="<$= user.lastName $>" class="form-group" id="edit-ln">
+            <input type="text" name="last_name" value="<$= user.lastName $>" class="form-control" id="edit-ln">
             <br>
             <label for="edit-email">Email:</label>
-            <input type="text" name="email" value="<$= user.email $>" class="form-group" id="edit-email">
+            <input type="text" name="email" value="<$= user.email $>" class="form-control" id="edit-email">
             <br>
             <label for="edit-institution">Institution:</label>
-            <input type="text" name="institution" value="<$= user.institution $>" class="form-group" id="edit-institution">
+            <input type="text" name="institution" value="<$= user.institution $>" class="form-control" id="edit-institution">
             <br>
             <label for="edit-location">Location:</label>
-            <input type="text" name="location" placeholder="Los Angeles" class="form-group" id="edit-location"><br>
+            <input type="text" name="location" placeholder="Los Angeles" class="form-control" id="edit-location"><br>
           </form>
         </div>
       <div class="modal-footer">
