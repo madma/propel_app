@@ -1,7 +1,5 @@
-console.log("SPIKING USER");
 
 function editUser(user) {
-  console.log("CLICKKKKKKK", user);
     $.ajax({
     type: 'PUT',
     url: '/api/users/' + userId ,
