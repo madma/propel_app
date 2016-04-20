@@ -1,10 +1,8 @@
 
-console.log("spike question loaded")
 
 //event listener for classroom submit
 $('#new-question-submit').on('click', function(evt) {
   evt.preventDefault();
-  console.log("new question click!")
   createQuestion();
 });
 

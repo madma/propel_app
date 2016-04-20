@@ -1,5 +1,3 @@
-console.log('spike_q_upvote loaded!');
-
 
 function questionUpvote(questionId){
   $.ajax({
@@ -7,9 +5,7 @@ function questionUpvote(questionId){
     url: "api/questions/" + questionId + "/upvote"
   })
   .then(function(data){
-    console.log(data.upvoted);
-    console.log(questionId);
-    console.log(data.classroomId);
+
     var votes = $(`.thumb-up-${questionId}`).html();
     if (data.upvoted) {
       $(`#up-${questionId}`).addClass('btn-success');

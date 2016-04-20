@@ -1,4 +1,3 @@
-console.log("classroom function js loaded")
 
 var classrooms = [];
 var currentRoom;
@@ -18,24 +17,19 @@ var $classroomInfoTemp = _.template(
 
 function renderClasses() {
   $('#classroom-list').empty();
-  console.log("before cm render", classrooms);
   classrooms = _.filter(classrooms, function(newOrder){
-    console.log(newOrder);
     return (newOrder.students.indexOf(userId) !== -1 ||
             newOrder.professionals.indexOf(userId) !== -1 ||
             newOrder.admins.indexOf(userId) !== -1 ||
             newOrder.creator === userId );
   });
 
-  console.log("filtered class", classrooms)
 
   classrooms.forEach(function(classroom){
     var $classTemp = $classroomInfoTemp(classroom);
-    // console.log($classTemp)
     $('#classroom-list').append($classTemp);
   });
   $('.class-list').on('click', function(){
-    console.log('classroom selected', $(this).attr('id'));
     classId = $(this).attr('id');
     indexingQuestions(classId);
   });
@@ -108,15 +102,11 @@ function renderQuestions(classroom){
   $questionListEl    = $('#question-list');
   var sortRoom = currentRoom;
   if ($sortSl.val() === "Newest") {
-    sortRoom.questions = _.orderBy(sortRoom.questions, ['createdAt'], ['asc', 'desc']);
+    sortRoom.questions = _.orderBy(sortRoom.questions, ['createdAt'], ['desc', 'asc']);
   } else if ($sortSl.val() === "Upvotes") {
     sortRoom.questions = _.orderBy(sortRoom.questions, ['upvotes'], ['desc', 'asc']);
   } else if ($sortSl.val() === "Oldest") {
-    sortRoom.questions = _.orderBy(sortRoom.questions, ['createdAt'], ['desc', 'asc']);
-  } else if ($sortSl.val() === "Your Questions") {
-    sortRoom.questions = sortRoom.questions.filter( function(question){
-      return question == userId
-    });
+    sortRoom.questions = _.orderBy(sortRoom.questions, ['createdAt'], ['asc', 'desc']);
   }
 
   $questionListEl.html(templateQuestions(sortRoom));
@@ -142,7 +132,6 @@ function startSetInterval() {
 }
 
 function updateTimestampEnglish() {
-  console.log("... updating timestamps ...");
   $('.the-date').each(function(i,e) {
     var ts = $(e).data('ts');
     $(this).text(moment(ts).fromNow());
@@ -151,7 +140,6 @@ function updateTimestampEnglish() {
 
 //sort question by upvotes and recent
 $sortSl.change(function(){
-  console.log("change")
   indexingQuestions(classId);
 });
 
@@ -192,11 +180,8 @@ function viewAns(){
 
 
   $('.question-expand').click(function(evt){
-    console.log('viewAns click', $(this).attr('id'));
   var index = $(this).attr('id');
   var q = currentRoom.questions[index];
-  console.log("123", q);
-  console.log(qaTemplate(q));
   $('#qa-anchor').html(qaTemplate(q));
   })
 

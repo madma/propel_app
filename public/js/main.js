@@ -1,4 +1,3 @@
-console.log('JS loaded!');
 
 // user adds classroom
 function userAddClassroom (user) {
@@ -20,7 +19,6 @@ function userCreateClassroom (classroom) {
     dataType: 'JSON',
     data: classroom
   }).then(function(classroom){
-    console.log("creating da classroom bruh",classroom);
     classrooms.push(classroom);
     renderClasses();
   })
