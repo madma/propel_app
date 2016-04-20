@@ -1,4 +1,3 @@
-console.log("classroom function js loaded")
 
 var classrooms = [];
 var currentRoom;
@@ -18,9 +17,7 @@ var $classroomInfoTemp = _.template(
 
 function renderClasses() {
   $('#classroom-list').empty();
-  console.log("before cm render", classrooms);
   classrooms = _.filter(classrooms, function(newOrder){
-    console.log(newOrder);
     return (newOrder.students.indexOf(userId) !== -1 ||
             newOrder.professionals.indexOf(userId) !== -1 ||
             newOrder.admins.indexOf(userId) !== -1 ||
@@ -30,11 +27,9 @@ function renderClasses() {
 
   classrooms.forEach(function(classroom){
     var $classTemp = $classroomInfoTemp(classroom);
-    // console.log($classTemp)
     $('#classroom-list').append($classTemp);
   });
   $('.class-list').on('click', function(){
-    // console.log('classroom selected', $(this).attr('id'));
     classId = $(this).attr('id');
     indexingQuestions(classId);
   });
@@ -137,7 +132,6 @@ function startSetInterval() {
 }
 
 function updateTimestampEnglish() {
-  console.log("... updating timestamps ...");
   $('.the-date').each(function(i,e) {
     var ts = $(e).data('ts');
     $(this).text(moment(ts).fromNow());
@@ -146,7 +140,6 @@ function updateTimestampEnglish() {
 
 //sort question by upvotes and recent
 $sortSl.change(function(){
-  console.log("change")
   indexingQuestions(classId);
 });
 
@@ -187,11 +180,8 @@ function viewAns(){
 
 
   $('.question-expand').click(function(evt){
-    console.log('viewAns click', $(this).attr('id'));
   var index = $(this).attr('id');
   var q = currentRoom.questions[index];
-  console.log("123", q);
-  console.log(qaTemplate(q));
   $('#qa-anchor').html(qaTemplate(q));
   })
 
