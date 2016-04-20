@@ -46,13 +46,13 @@ Our team took advantage of the AGILE approach to development. AGILE encourages d
 
 We then made diagrams of our data model (ERD):
 
-![alt text](http://i.imgur.com/16wq2gY.png)
+![Data Model ERD](./public/assets/images/DataModelERD.png)
 
 We then generated static visuals to begin realizing our user stories. These included wireframes, or diagrams, of site views. 
 
-![alt text](http://i.imgur.com/9HfYKVH.jpg?1)
-
-![alt text](http://i.imgur.com/07rP4Mg.jpg)
+![Wireframe 1](./public/assets/images/Wireframes1.png)
+![Wireframe 1](./public/assets/images/Wireframes2.png)
+![Wireframe 1](./public/assets/images/Wireframes3.png)
 
 Concurrently, we developed a "pitch deck" that expressed our developing vision for Propel in terms of a business proposition to be pitched to investors.
 
