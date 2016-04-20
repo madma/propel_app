@@ -56,7 +56,7 @@ function getQFormData() {
 }
 
 function makeTagObjArray(tagsString, addedBy) {
-  return _.words(tagsString).map(t => ({tag: t, owner: addedBy}));
+  return _.words(tagsString).map(function(t) { return {tag: t, owner: addedBy};});
 }
 
 function getAFormData() {
