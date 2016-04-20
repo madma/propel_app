@@ -27,7 +27,6 @@ function renderClasses() {
             newOrder.creator === userId );
   });
 
-  console.log("filtered class", classrooms)
 
   classrooms.forEach(function(classroom){
     var $classTemp = $classroomInfoTemp(classroom);
@@ -35,7 +34,7 @@ function renderClasses() {
     $('#classroom-list').append($classTemp);
   });
   $('.class-list').on('click', function(){
-    console.log('classroom selected', $(this).attr('id'));
+    // console.log('classroom selected', $(this).attr('id'));
     classId = $(this).attr('id');
     indexingQuestions(classId);
   });
@@ -108,15 +107,11 @@ function renderQuestions(classroom){
   $questionListEl    = $('#question-list');
   var sortRoom = currentRoom;
   if ($sortSl.val() === "Newest") {
-    sortRoom.questions = _.orderBy(sortRoom.questions, ['createdAt'], ['asc', 'desc']);
+    sortRoom.questions = _.orderBy(sortRoom.questions, ['createdAt'], ['desc', 'asc']);
   } else if ($sortSl.val() === "Upvotes") {
     sortRoom.questions = _.orderBy(sortRoom.questions, ['upvotes'], ['desc', 'asc']);
   } else if ($sortSl.val() === "Oldest") {
-    sortRoom.questions = _.orderBy(sortRoom.questions, ['createdAt'], ['desc', 'asc']);
-  } else if ($sortSl.val() === "Your Questions") {
-    sortRoom.questions = sortRoom.questions.filter( function(question){
-      return question == userId
-    });
+    sortRoom.questions = _.orderBy(sortRoom.questions, ['createdAt'], ['asc', 'desc']);
   }
 
   $questionListEl.html(templateQuestions(sortRoom));
