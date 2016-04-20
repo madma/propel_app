@@ -35,9 +35,9 @@ Join Propel! for a fast-paced, thorough, and engaging learning experience that w
 
 ## General Approach for Propel!'s Development
 
-[Check out Propel's Trello Board](https://trello.com/b/vsHXqFEq/wdi-project-3-propel)
+[Check out Propel's Trello Board here.](https://trello.com/b/vsHXqFEq/wdi-project-3-propel)
 
-[Also, check out our Pitch Deck:]
+[And our Pitch Deck here.]
 (https://drive.google.com/file/d/0B-gPQrW54-ySSXk1NGZ2NGYybHM/view?usp=sharing)
 
 Our team took advantage of the AGILE approach to development. AGILE encourages developers to envision project features in terms of the needs of site users. To this end, we generated numerous "user stories": what users would want to do or see on the site, and why.
